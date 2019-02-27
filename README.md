@@ -1,11 +1,15 @@
-# Título del trabajo
+# Do you wanna be a millionaire? 
 
-Descripción breve del proyecto a realizar (2-3 frases).
+Juego en el que empiezas con un millón de euros. A través de una serie de preguntas vas a tener que distribuir el dinero en sus posibles respuestas. La dificultad irá aumentando progresivamente y número de posibles respuestas irá disminuyendo (4, 3, 2).
 
 ## Integrantes del equipo
 
-Nombres, apellidos, y usuario GitHub de los integrantes del equipo.
+Carlos Murillo Pagador @carlosmurillopagador
+
+Juan Miguel Cabornero Pascual @jmcabornero
+
+José Vicente Guillén Mainez @josevicenteguillenmainez
 
 ## Objetivos del trabajo
 
-Lista de los objetivos que se persiguen con el trabajo propuesto.
+Clasificación de las preguntas en función de su dificultad, evitar repeticiones de las preguntas y que sean aleatorias dentro del nivel indicado, etc.
