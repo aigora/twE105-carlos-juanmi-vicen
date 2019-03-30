@@ -1,29 +1,64 @@
 #include <stdio.h>
 #include <math.h>
 #include <windows.h>
+#include <stdlib.h>
 
-void escribeTexto(char cadena[]); //funcion para que las letras vayan de una en una
+
+void escribeTexto(char vector[]); //funcion para que las letras vayan con retraso
 
 int main() //programa principal
 {
-	char nombre[50];
+	srand (time(NULL));
+	char nombre[50], respuesta;
+	char instrucciones[]= "\nEl juego consta de un total de 8 preguntas. La dificultad de cada pregunta ira aumentando \n\
+progresivamente. Al principio, empezaras con un total de un millon de euros repartidos en 40 fajos de 25.000 \n\
+en cada uno. Antes de cada pregunta podras elegir entre dos posibles temas.En cada pregunta podras repartir tu \n\
+dinero a las diferentes posibles respuestas de cada una. En las cuatro primeras preguntas habra cuatro opciones, \n\
+pero solo podras repartir tu dinero en tres de ellas. En las tres siguientes habra 3 posibles opciones, pero solo \n\
+podras elegir dos y en la ultima pregunta, habra dos posibles respuestas y solo podras elegir una de ellas.\n\n\
+Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas:\n\n";
+	char noentiendo[]="\nNo te entiendo. Por favor, escribe 'si' o 'no':\n\n";
 	int i=0;
 	printf("         ---------------------------------------------\n         ---------------------------------------------\n");
 	printf("         ********BIENVENIDO A ATRAPA UN MILLON********\n         ---------------------------------------------\n");
-	printf("         ---------------------------------------------\n         ---------------------------------------------\n");
+	printf("         ---------------------------------------------\n         ---------------------------------------------\n\n");
 	char texto1[]= "Hola!, soy Carlos y te doy la bienvenida a ATRAPA UN MILLON.\n\
-Para empezar, me gustaria saber tu nombre para conocernos mejor:\n";
+Para empezar, me gustaria saber tu nombre para conocernos mejor:\n\n";
 	escribeTexto(texto1);
-	gets(nombre);
+	gets(nombre); //obtiene el nombre de la persona
+	char texto2[]= "\nMuy bien ";
+	escribeTexto(texto2);
+	escribeTexto(nombre);
+	printf(", eres nuevo en este juego y quieres que te expliquemos las normas rapidamente?\n\n"); //pregunta si quieres que explique las normas o no
+	scanf("%c", &respuesta);
+	while ((respuesta!='s')&&(respuesta!='n')&&(respuesta!='S')&&(respuesta!='N')) //si no pone ni si ni no
+	{
+		escribeTexto(noentiendo);
+		scanf("%c", &respuesta);	
+	}
+	switch(respuesta) //si pone si
+    {
+    case 'S':
+    case 's':
+    	escribeTexto(instrucciones); 
+    	break;
+    case 'N':
+    case 'n':
+    	printf("\nMuy bien, entonces empezemos con la primera seleccion de temas. Escribe el numero del tema (1 o 2)\n");
+    	break;
+    }
+	    
+    
+
 }
 
-void escribeTexto(char cadena[]) //funcion letras de una en una
+void escribeTexto(char vector[]) //funcion letras con retraso
 {
 	int i=0;
-	while(cadena[i]!='\0')
+	while(vector[i]!='\0')
 	{
-		printf("%c", cadena[i]);
+		printf("%c", vector[i]);
 		i++;
-		Sleep(30);
+		Sleep(10);
 	}
 }
