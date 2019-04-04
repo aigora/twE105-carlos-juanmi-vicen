@@ -17,7 +17,7 @@ dinero a las diferentes posibles respuestas de cada una. En las cuatro primeras 
 pero solo podras repartir tu dinero en tres de ellas. En las tres siguientes habra 3 posibles opciones, pero solo \n\
 podras elegir dos y en la ultima pregunta, habra dos posibles respuestas y solo podras elegir una de ellas. \n\
 En cada pregunta dispondras de 60 segundos para contestar. \n\n\
-Bien, ahora que sabes las normas, empezaremos con la primera pregunta. Recuerda que tienes un millon de euros para jugar...\n\n";
+Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas. Recuerda que tienes un millon de euros para jugar...\n\n";
 	char noentiendo[]="\nNo te entiendo. Por favor, escribe 'si' o 'no':\n\n";
 	int i=0;
 	printf("         ---------------------------------------------\n         ---------------------------------------------\n         ---------------------------------------------\n");
@@ -45,11 +45,30 @@ Para empezar, me gustaria saber tu nombre para conocernos mejor:\n\n";
     	break;
     case 'N':
     case 'n':
-    	printf("\nMuy bien, entonces empezemos con la primera pregunta. Recuerda que ahora tienes un millon de euros para jugar...\n\n\n");
+    	printf("\nMuy bien, entonces empezemos con la primera seleccion de temas. Recuerda que ahora tienes un millon de euros para jugar...\n\n\n");
     	break;
     }
-    
-	    
+    //se generan  dos temas aleatorios
+    printf("TEMA1 / TEMA2")
+    switch(tema)
+    {
+    	case 'tema1':
+    		//printea aleatoriamente una de las preguntas del tema 1 y sus posibles respuestas
+    		//apuesta el dinero en las posibles respuestas
+    		switch(respuesta)
+    		{
+    			case 'si':
+    				//se vuelve a repetir el reparto
+    				break;
+    			case 'no':
+    				//printea la respuesta y el dinero conservado
+			}  		
+    		break;
+    	case 'tema2':
+    		//igual que en tema1
+    		break;
+    //si te quedas sin dinero, se acaba el juego. Si no, pasas a la siguiente pregunta
+	}
     
 
 }
