@@ -84,5 +84,30 @@ void escribeTexto(char vector[]) //funcion letras con retraso
 	}
 }
 
-
+/*void main()
+{
+	int i, j, k;
+	int temas[8];
+	
+	srand (time(NULL));
+	temas[0]=rand()%8;
+	for( i=1 ; i<8 ; i++)
+	{
+	temas[i]=rand()%8;
+	for( j=i-1 ; j>=0 ; j--)
+	{
+	while(temas[i]==temas[j])
+	{
+	temas[i]=rand()%8;
+	j=i-1;
+	}
+	}
+	}
+	
+	
+		for( i=0 ; i<8 ; i++ )
+	{
+		printf("%d  ", temas [i]);
+	}
+}/*
 
