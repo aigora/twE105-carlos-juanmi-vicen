@@ -82,7 +82,10 @@ void escribeTexto(char vector[]) //funcion letras con retraso
 		i++;
 		Sleep(10);
 	}
+	
+vectorRandom(int temas[])
 }
+
 
 
 
