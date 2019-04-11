@@ -6,8 +6,31 @@
 void escribeTexto(char vector[]); //funcion para que las letras vayan con retraso
 void temasrand(int temas[8]);
 
+typedef struct {    //2 preguntas en cada tema
+char contenido;
+} question;
+
+typedef struct {    //8 temas
+char titulo;
+question pregunta[10];
+} Ntema; 
+
+
+
+
 int main() //programa principal
 {
+	Ntema T1, T2, T3, T4, T5, T6, T7, T8;
+	
+	T1.titulo='ANIMALES';
+	T2.titulo='HISTORIA';
+	T3.titulo='DEPORTE';
+	T4.titulo='CIENCIA';	
+	T5.titulo='INVENTOS';
+	T6.titulo='LITERATURA';	
+	T7.titulo='ARTE';
+	T8.titulo='GEOGRAFIA';	
+	
 	srand (time(NULL));
 	char nombre[50], respuesta;
 	int i=0;
@@ -82,9 +105,7 @@ void escribeTexto(char vector[]) //funcion letras con retraso
 		printf("%c", vector[i]);
 		i++;
 		Sleep(10);
-	}
-	
-vectorRandom(int temas[])
+	}	
 }
 
 void temasrand(int temas[8])
@@ -105,12 +126,6 @@ void temasrand(int temas[8])
 	}
 	}
 	}
-	
-	
-		/*for( i=0 ; i<8 ; i++ )
-	{
-		printf("%d  ", temas [i]);
-	}*/
 }
 
 
