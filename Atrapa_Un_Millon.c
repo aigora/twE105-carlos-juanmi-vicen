@@ -2,39 +2,48 @@
 #include <math.h>
 #include <windows.h>
 #include <stdlib.h>
+#include <string.h>
+#define NUMT1 8     //numero temas de la primera parte
+#define NUMT2 6 	//numero temas de la segunda parte
+#define NUMT3 2 	//numero temas de la tercera parte
 
 void escribeTexto(char vector[]); //funcion para que las letras vayan con retraso
-void temasrand(int temas[8]);
+void temasrand(int aleatorio[NUMT1]); //generador de vector aleatorio
 
 typedef struct {    //2 preguntas en cada tema
 char contenido;
 } question;
 
 typedef struct {    //8 temas
-char titulo;
+char titulo[15];
 question pregunta[10];
 } Ntema; 
 
-
-
-
 int main() //programa principal
 {
-	Ntema T1, T2, T3, T4, T5, T6, T7, T8;
-	
-	T1.titulo='ANIMALES';
-	T2.titulo='HISTORIA';
-	T3.titulo='DEPORTE';
-	T4.titulo='CIENCIA';	
-	T5.titulo='INVENTOS';
-	T6.titulo='LITERATURA';	
-	T7.titulo='ARTE';
-	T8.titulo='GEOGRAFIA';	
-	
-	srand (time(NULL));
+	srand (time(NULL)); 
 	char nombre[50], respuesta;
-	int i=0;
-	int temas[8];
+	int i=0, posicion; //posicion se usa en el desorden de los temas
+	int aleatorio[NUMT1];
+	
+	Ntema Tordenados[NUMT1];	
+	strcpy(Tordenados[0].titulo,"ANIMALES");
+	strcpy(Tordenados[1].titulo,"HISTORIA");
+	strcpy(Tordenados[2].titulo,"DEPORTE");
+	strcpy(Tordenados[3].titulo,"CIENCIA");
+	strcpy(Tordenados[4].titulo,"INVENTOS");
+	strcpy(Tordenados[5].titulo,"LITERATURA");
+	strcpy(Tordenados[6].titulo,"ARTE");
+	strcpy(Tordenados[7].titulo,"GEOGRAFIA");
+	Ntema Tdesordenados[NUMT1];
+	for(i=0; i<NUMT1; i++)
+	{
+		posicion=aleatorio[i];
+		Tdesordenados[i]=Tordenados[posicion];
+	}
+	
+	
+	
 	printf("         ---------------------------------------------\n         ---------------------------------------------\n         ---------------------------------------------\n");
 	printf("         ********BIENVENIDO A ATRAPA UN MILLON********\n         ---------------------------------------------\n");
 	printf("         ---------------------------------------------\n         ---------------------------------------------\n\n");
@@ -92,7 +101,7 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
     		break;
     //si te quedas sin dinero, se acaba el juego. Si no, pasas a la siguiente pregunta
 	}*/
-    temasrand(temas);
+    temasrand(aleatorio);
 
 }
 
@@ -108,20 +117,20 @@ void escribeTexto(char vector[]) //funcion letras con retraso
 	}	
 }
 
-void temasrand(int temas[8])
+void temasrand(int aleatorio[NUMT1])
 {
 	int i, j;
 	
 	srand (time(NULL));
-	temas[0]=rand()%8;
-	for( i=1 ; i<8 ; i++)
+	aleatorio[0]=rand()%8;
+	for( i=1 ; i<NUMT1 ; i++)
 	{
-	temas[i]=rand()%8;
+	aleatorio[i]=rand()%8;
 	for( j=i-1 ; j>=0 ; j--)
 	{
-	while(temas[i]==temas[j])
+	while(aleatorio[i]==aleatorio[j])
 	{
-	temas[i]=rand()%8;
+	aleatorio[i]=rand()%8;
 	j=i-1;
 	}
 	}
