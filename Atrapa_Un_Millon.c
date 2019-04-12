@@ -78,7 +78,7 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
     	break;
     case 'N':
     case 'n':
-    	escribeTexto("\nMuy bien, entonces empezemos con la primera seleccion de temas. Recuerda que ahora tienes un millon de euros para jugar...\n\n\n");
+    	escribeTexto("\n Muy bien, entonces empezemos con la primera seleccion de temas. Recuerda que ahora tienes un millon de euros para jugar...\n\n\n");
     	break;
     }
     
