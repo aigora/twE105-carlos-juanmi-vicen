@@ -9,6 +9,7 @@
 
 void escribeTexto(char vector[]); //funcion para que las letras vayan con retraso
 void temasrand(int aleatorio[NUMT1]); //generador de vector aleatorio
+void nombres(char vector[]); //funcion que comprueba si el usuario ya existe
 
 typedef struct {    //2 preguntas en cada tema
 char contenido;
@@ -22,10 +23,11 @@ question pregunta[10];
 int main() //programa principal
 {
 	srand (time(NULL)); 
-	char nombre[50], respuesta;
-	int i=0, posicion; //posicion se usa en el desorden de los temas
-	int aleatorio[NUMT1];
-	
+	char nombre[50], respuesta, nombrearchivo[50];
+	int i, posicion; //posicion se usa en el desorden de los temas
+	int aleatorio[NUMT1], loged=0; 
+	FILE *pf;
+	pf = fopen("Ficheros/Nombres/Nombres.txt", "r");
 	Ntema Tordenados[NUMT1];	
 	strcpy(Tordenados[0].titulo,"ANIMALES");
 	strcpy(Tordenados[1].titulo,"HISTORIA");
@@ -36,12 +38,11 @@ int main() //programa principal
 	strcpy(Tordenados[6].titulo,"ARTE");
 	strcpy(Tordenados[7].titulo,"GEOGRAFIA");
 	Ntema Tdesordenados[NUMT1];
-	for(i=0; i<NUMT1; i++)
-	{
-		posicion=aleatorio[i];
-		Tdesordenados[i]=Tordenados[posicion];
-	}
-	
+//	for(i=0; i<NUMT1; i++)
+//	{
+//		posicion=aleatorio[i];
+//		Tdesordenados[i]=Tordenados[posicion];
+//	}
 	
 	
 	printf("         ---------------------------------------------\n         ---------------------------------------------\n         ---------------------------------------------\n");
@@ -49,13 +50,31 @@ int main() //programa principal
 	printf("         ---------------------------------------------\n         ---------------------------------------------\n\n");
 	
 	escribeTexto("Hola!, soy Carlos y te doy la bienvenida a ATRAPA UN MILLON.\n\
-Para empezar, me gustaria saber tu nombre para conocernos mejor:\n\n");
+Para empezar, me gustaria saber tu nombre y apellidos para conocernos mejor:\n\n");
 
 	gets(nombre); //obtiene el nombre de la persona
 	
-	escribeTexto("\nMuy bien ");
-	escribeTexto(nombre);
-	escribeTexto(", eres nuevo en este juego y quieres que te expliquemos las normas rapidamente?\n\n"); //pregunta si quieres que explique las normas o no
+while(feof(pf)==0)
+	{
+		fscanf(pf, " %[^\n]; %s\n", &nombrearchivo);
+		if(strcmp(nombrearchivo,nombre)==1) //significa que los dos nombres son iguales
+		{
+			loged=1; //está logeado
+			escribeTexto("\nMuy bien ");
+			escribeTexto(nombre);
+			escribeTexto(", como veo ya has jugado a este juego y por lo tanto no hace falta que te expliquemos las normas. \n\
+asi pues, procederemos a la primera seleccion de temas:\n" );
+			break;
+		}
+	}
+	if(loged==0) //no está logeado
+	{
+		fclose(pf);
+		fopen("Ficheros/Nombres/Nombres.txt", "a");
+		fprintf(pf,"\n%s",nombre);
+		escribeTexto("\nMuy bien ");
+		escribeTexto(nombre);
+		escribeTexto(", como veo eres nuevo en este juego. Te gustaria que te explicaramos las reglas del juego?\n\n"); //pregunta si quieres que explique las normas o no
 	scanf("%c", &respuesta);
 	while ((respuesta!='s')&&(respuesta!='n')&&(respuesta!='S')&&(respuesta!='N')) //si no pone ni si ni no
 	{
@@ -79,7 +98,9 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
     case 'n':
     	escribeTexto("\nMuy bien, entonces empezemos con la primera seleccion de temas. Recuerda que ahora tienes un millon de euros para jugar...\n\n\n");
     	break;
-    }
+    }	
+	}
+
     
     //se generan  dos temas aleatorios
     /*switch(tema)
@@ -136,5 +157,6 @@ void temasrand(int aleatorio[NUMT1])
 	}
 	}
 }
+
 
 
