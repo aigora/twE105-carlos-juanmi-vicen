@@ -1,4 +1,4 @@
-# Do you wanna be a millionaire? 
+# ATRAPA UN MILLÓN
 
 Juego en el que empiezas con un millón de euros. A través de una serie de preguntas vas a tener que distribuir el dinero en sus posibles respuestas. La dificultad irá aumentando progresivamente y número de posibles respuestas irá disminuyendo (4, 3, 2).
 
