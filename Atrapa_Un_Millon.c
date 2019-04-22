@@ -44,7 +44,7 @@ int main() //programa principal
 //		Tdesordenados[i]=Tordenados[posicion];
 //	}
 	
-	
+
 	printf("         ---------------------------------------------\n         ---------------------------------------------\n         ---------------------------------------------\n");
 	printf("         ********BIENVENIDO A ATRAPA UN MILLON********\n         ---------------------------------------------\n");
 	printf("         ---------------------------------------------\n         ---------------------------------------------\n\n");
@@ -54,7 +54,7 @@ Para empezar, me gustaria saber tu nombre y apellidos para conocernos mejor:\n\n
 
 	gets(nombre); //obtiene el nombre de la persona
 	
-while(feof(pf)==0)
+	while(feof(pf)==0)
 	{
 		fscanf(pf, " %[^\n]; %s\n", &nombrearchivo);
 		if(strcmp(nombrearchivo,nombre)==1) //significa que los dos nombres son iguales
@@ -71,7 +71,7 @@ asi pues, procederemos a la primera seleccion de temas:\n" );
 	{
 		fclose(pf);
 		fopen("Ficheros/Nombres/Nombres.txt", "a");
-		fprintf(pf,"\n%s",nombre);
+		fprintf(pf,"\n%s\n",nombre);
 		escribeTexto("\nMuy bien ");
 		escribeTexto(nombre);
 		escribeTexto(", como veo eres nuevo en este juego. Te gustaria que te explicaramos las reglas del juego?\n\n"); //pregunta si quieres que explique las normas o no
@@ -96,7 +96,7 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
     	break;
     case 'N':
     case 'n':
-    	escribeTexto("\nMuy bien, entonces empezemos con la primera seleccion de temas. Recuerda que ahora tienes un millon de euros para jugar...\n\n\n");
+    	escribeTexto("\n Muy bien, entonces empezemos con la primera seleccion de temas. Recuerda que ahora tienes un millon de euros para jugar...\n\n\n");
     	break;
     }	
 	}
@@ -157,6 +157,3 @@ void temasrand(int aleatorio[NUMT1])
 	}
 	}
 }
-
-
-
