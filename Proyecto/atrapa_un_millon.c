@@ -1,10 +1,6 @@
-
 #define NUMT2 6 	//numero temas de la segunda parte
 #define NUMT3 2 	//numero temas de la tercera parte
 #include "mylib.h"
-
-
-void nombres(char vector[]); //funcion que comprueba si el usuario ya existe
 
 typedef struct {    //2 preguntas en cada tema
 char contenido;
