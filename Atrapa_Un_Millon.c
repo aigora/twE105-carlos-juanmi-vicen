@@ -7,8 +7,7 @@
 #define NUMT2 6 	//numero temas de la segunda parte
 #define NUMT3 2 	//numero temas de la tercera parte
 
-void escribeTexto(char vector[]); //funcion para que las letras vayan con retraso
-void temasrand(int aleatorio[NUMT1]); //generador de vector aleatorio
+
 void nombres(char vector[]); //funcion que comprueba si el usuario ya existe
 
 typedef struct {    //2 preguntas en cada tema
@@ -123,11 +122,10 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
     //si te quedas sin dinero, se acaba el juego. Si no, pasas a la siguiente pregunta
 	}*/
     temasrand(aleatorio);
-
 }
-
-
-void escribeTexto(char vector[]) //funcion letras con retraso
+    
+    
+    void escribeTexto(char vector[]) //funcion letras con retraso
 {
 	int i=0;
 	while(vector[i]!='\0')
@@ -138,10 +136,9 @@ void escribeTexto(char vector[]) //funcion letras con retraso
 	}	
 }
 
-void temasrand(int aleatorio[NUMT1])
+void temasrand(int aleatorio[])
 {
 	int i, j;
-	
 	srand (time(NULL));
 	aleatorio[0]=rand()%8;
 	for( i=1 ; i<NUMT1 ; i++)
@@ -157,3 +154,7 @@ void temasrand(int aleatorio[NUMT1])
 	}
 	}
 }
+
+
+
+
