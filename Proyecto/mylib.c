@@ -29,3 +29,23 @@ void temasrand(int aleatorio[NUMT1])
 	}
 	}
 }
+
+void abrirficherospreguntas(void)
+{
+	int i, j;
+	FILE *pf, *pb1, *pb2, *pb3; 
+	pf = fopen("Ficheros/Nombres/Nombres.txt", "r");
+	pb1 = fopen("Ficheros/Nombres/PreguntasBloque1", "r");
+	pb2 = fopen("Ficheros/Nombres/PreguntasBloque2", "r");
+	pb3 = fopen("Ficheros/Nombres/PreguntasBloque3", "r");
+	
+}
+
+
+
+
+
+
+
+
+
