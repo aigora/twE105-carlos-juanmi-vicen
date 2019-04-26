@@ -3,23 +3,22 @@
 #include "mylib.h"
 
 typedef struct {    //2 preguntas en cada tema
-char contenido;
+char contenido[80000];
 } question;
 
 typedef struct {    //8 temas
 char titulo[15];
-question pregunta[10];
+question pregunta[2];
 } Ntema; 
 
 int main() //programa principal
 {
 	srand (time(NULL)); 
 	char nombre[50], respuesta, nombrearchivo[50];
-	int i, posicion; //posicion se usa en el desorden de los temas
+	int i, j, l, posicion; //posicion se usa en el desorden de los temas
 	int aleatorio[NUMT1], loged=0; 
-	FILE *pf;
-	pf = fopen("Ficheros/Nombres/Nombres.txt", "r");
 	Ntema Tordenados[NUMT1];	
+	FILE *pf, *pb1, *pb2, *pb3;
 	strcpy(Tordenados[0].titulo,"ANIMALES");
 	strcpy(Tordenados[1].titulo,"HISTORIA");
 	strcpy(Tordenados[2].titulo,"DEPORTE");
@@ -28,12 +27,32 @@ int main() //programa principal
 	strcpy(Tordenados[5].titulo,"LITERATURA");
 	strcpy(Tordenados[6].titulo,"ARTE");
 	strcpy(Tordenados[7].titulo,"GEOGRAFIA");
-	Ntema Tdesordenados[NUMT1];
-//	for(i=0; i<NUMT1; i++)
-//	{
-//		posicion=aleatorio[i];
-//		Tdesordenados[i]=Tordenados[posicion];
-//	}
+abrirficherospreguntas(); //abre los ficheros de los nombres y de los bloques de las preguntas
+	
+	for (l=0; l<8; l++)
+	{
+	for (j=0; j<2; j++)
+	{
+	while(feof(pf)==0)
+	{
+		fscanf(pb1, " %[^-]; %s\n", &Tordenados[l].pregunta[j].contenido); 
+	}
+	}
+	}
+
+
+
+
+
+
+temasrand(aleatorio);  //creamos un vector aleatorio
+	Ntema Tdesordenados[NUMT1]; //creamos la estructura de temas desordenados 
+	for(i=0; i<NUMT1; i++) //aleatoriza la estructura de temas que estaba ordenada
+	{
+		posicion=aleatorio[i];
+		Tdesordenados[i]=Tordenados[posicion];
+	}
+	
 	
 
 	printf("         ---------------------------------------------\n         ---------------------------------------------\n         ---------------------------------------------\n");
@@ -47,7 +66,7 @@ Para empezar, me gustaria saber tu nombre y apellidos para conocernos mejor:\n\n
 	
 	while(feof(pf)==0)
 	{
-		fscanf(pf, " %[^\n]; %s\n", &nombrearchivo);
+		fscanf(pf, " %[^\n]; %s\n", &nombrearchivo); //escanea un nombre hasta el primer salto de linea
 		if(strcmp(nombrearchivo,nombre)==1) //significa que los dos nombres son iguales
 		{
 			loged=1; //está logeado
@@ -113,7 +132,7 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
     		break;
     //si te quedas sin dinero, se acaba el juego. Si no, pasas a la siguiente pregunta
 	}*/
-    temasrand(aleatorio);
+    
 
 }
 
