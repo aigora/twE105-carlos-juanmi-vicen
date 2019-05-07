@@ -11,7 +11,7 @@ void escribeTexto(char vector[]) //funcion letras con retraso
 	}	
 }
 
-void temasrand(int aleatorio[NUMT1])
+void vectorrand8(int aleatorio[NUMT1])
 {
 	int i, j;	
 	srand (time(NULL));
@@ -30,16 +30,25 @@ void temasrand(int aleatorio[NUMT1])
 	}
 }
 
-void abrirficherospreguntas(void)
+void vectorrand2(int aleatorio[NUMP])
 {
-	int i, j;
-	FILE *pf, *pb1, *pb2, *pb3; 
-	pf = fopen("Ficheros/Nombres/Nombres.txt", "r");
-	pb1 = fopen("Ficheros/Nombres/PreguntasBloque1", "r");
-	pb2 = fopen("Ficheros/Nombres/PreguntasBloque2", "r");
-	pb3 = fopen("Ficheros/Nombres/PreguntasBloque3", "r");
-	
+	int i, j;	
+	srand (time(NULL));
+	aleatorio[0]=rand()%2;
+	for( i=1 ; i<NUMP ; i++)
+	{
+	aleatorio[i]=rand()%2;
+	for( j=i-1 ; j>=0 ; j--)
+	{
+	while(aleatorio[i]==aleatorio[j])
+	{
+	aleatorio[i]=rand()%2;
+	j=i-1;
+	}
+	}
+	}
 }
+
 
 
 
