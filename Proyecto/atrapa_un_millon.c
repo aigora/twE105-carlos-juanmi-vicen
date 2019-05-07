@@ -1,11 +1,9 @@
 #include "mylib.h"
 
 typedef struct {    //2 preguntas en cada tema
-<<<<<<< HEAD
+
 char contenido[100];
-=======
 char contenido[500];
->>>>>>> 816cefe46657716695089f3b727c36663c38d14e
 char respuesta[16][4];
 } question;
 
@@ -17,20 +15,14 @@ question pregunta[2];
 int main() //programa principal
 {
 	srand (time(NULL)); 
-<<<<<<< HEAD
 	char nombre[50], respuestanombre, nombrearchivo[50], respuestatema[50];
-=======
 	char nombre[50], respuestanombre, nombrearchivo[50];
->>>>>>> 816cefe46657716695089f3b727c36663c38d14e
 	int i, j, l, k, posicion; //posicion se usa en el desorden de los temas
 	int aleatorio8[NUMT1], aleatorio2[NUMP], loged=0;
 	Ntema Tordenados[NUMT1];
 	FILE *pf, *pb1, *pb2, *pb3, *res1;
-<<<<<<< HEAD
 	strcpy(Tordenados[0].titulo,"ANIMALES");				
-=======
 	strcpy(Tordenados[0].titulo,"ANIMALES");
->>>>>>> 816cefe46657716695089f3b727c36663c38d14e
 	strcpy(Tordenados[1].titulo,"HISTORIA");
 	strcpy(Tordenados[2].titulo,"DEPORTE");
 	strcpy(Tordenados[3].titulo,"CIENCIA");
@@ -38,7 +30,6 @@ int main() //programa principal
 	strcpy(Tordenados[5].titulo,"LITERATURA");
 	strcpy(Tordenados[6].titulo,"ARTE");
 	strcpy(Tordenados[7].titulo,"GEOGRAFIA");
-<<<<<<< HEAD
 	//abre los ficheros de los nombres y de los bloques de las preguntas
 	pf = fopen("Ficheros/Nombres/Nombres.txt", "r");
 	pb1 = fopen("Ficheros/Preguntas/PreguntasBloque1.txt", "r");
@@ -58,7 +49,6 @@ int main() //programa principal
 	}
 	vectorrand8(aleatorio8);  //creamos un vector aleatorio de 8
 	vectorrand2(aleatorio2);  //creamos un vector aleatorio de 2
-=======
 //abrirficherospreguntas(); //abre los ficheros de los nombres y de los bloques de las preguntas
 	
 	for (l=0; l<8; l++) //esto esta en obras
@@ -77,7 +67,7 @@ int main() //programa principal
 }
 vectorrand8(aleatorio8);  //creamos un vector aleatorio de 8
 vectorrand2(aleatorio2);  //creamos un vector aleatorio de 2
->>>>>>> 816cefe46657716695089f3b727c36663c38d14e
+	
 	Ntema Tdesordenados[NUMT1]; //creamos la estructura de temas desordenados 
 	for(i=0; i<NUMT1; i++) //aleatoriza la estructura de temas que estaba ordenada
 	{
@@ -95,28 +85,22 @@ vectorrand2(aleatorio2);  //creamos un vector aleatorio de 2
 Para empezar, me gustaria saber tu nombre y apellidos para conocernos mejor:\n\n");
 
 	gets(nombre); //obtiene el nombre de la persona
-<<<<<<< HEAD
-=======
     pf = fopen("Ficheros/Nombres/Nombres.txt", "r");
->>>>>>> 816cefe46657716695089f3b727c36663c38d14e
     while(!feof(pf))
     {
         fscanf(pf, "%[^\n]\n", &nombrearchivo); //escanea un nombre hasta el primer salto de linea
         if(strcmp(nombrearchivo,nombre)==0) //significa que los dos nombres son iguales
         {
-            loged=1; //est· logeado
+            loged=1; //est√° logeado
             escribeTexto("\nMuy bien ");
             escribeTexto(nombre);
             escribeTexto(", como veo ya has jugado a este juego y por lo tanto no hace falta que te expliquemos las normas. \n\
-<<<<<<< HEAD
 Asi pues, procederemos a la primera seleccion de temas:\n" );
-=======
 asi pues, procederemos a la primera seleccion de temas:\n" );
->>>>>>> 816cefe46657716695089f3b727c36663c38d14e
             break;
         }
     }
-    if(loged==0) //no est· logeado
+    if(loged==0) //no est√° logeado
     {
         fclose(pf);
         fopen("Ficheros/Nombres/Nombres.txt", "a");
@@ -125,11 +109,8 @@ asi pues, procederemos a la primera seleccion de temas:\n" );
 		escribeTexto(nombre);
 		escribeTexto(", como veo eres nuevo en este juego. Te gustaria que te explicaramos las reglas del juego?\n\n"); //pregunta si quieres que explique las normas o no
 	scanf("%c", &respuestanombre);
-<<<<<<< HEAD
 	while ((respuestanombre!='s')&&(respuestanombre!='n')&&(respuestanombre!='S')&&(respuestanombre!='N')) //si no pone ni si ni no
-=======
 	while ((respuestanombre!='s')&&(respuestanombre='n')&&(respuestanombre='S')&&(respuestanombre='N')) //si no pone ni si ni no
->>>>>>> 816cefe46657716695089f3b727c36663c38d14e
 	{
 		escribeTexto("\nNo te entiendo. Por favor, escribe 'si' o 'no':\n\n");
 		scanf("%c", &respuestanombre);	
