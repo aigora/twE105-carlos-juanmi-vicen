@@ -14,7 +14,7 @@ int main() //programa principal
 {
 	srand (time(NULL)); 
 	char nombre[50], respuestanombre, nombrearchivo[50], respuestatema[50];
-	int i, j, l, k, posicion; //posicion se usa en el desorden de los temas
+	int i, j, l, k, posicion, flag; //posicion se usa en el desorden de los temas
 	int aleatorio8[NUMT1], aleatorio2[NUMP], loged=0;
 	Ntema Tordenados[NUMT1];
 	FILE *pf, *pb1, *pb2, *pb3, *res1;
@@ -110,22 +110,24 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	}
 	//empezamos con la seleccion de temas
 	printf("\n\n		%s		%s\n\n", Tdesordenados[0].titulo, Tdesordenados[1].titulo);	
-	while(1)
-	{
+	flag=0;
 	gets(respuestatema);
+	while(flag==0)
+	{
 	if(strcmp(respuestatema,Tdesordenados[0].titulo)==0)
 	{
 		printf("\n%s", Tdesordenados[0].pregunta[aleatorio2[0]].contenido);
-		break;
+		flag=1;
 	}
 	else if(strcmp(respuestatema,Tdesordenados[1].titulo)==0)
 	{
 		printf("\n%s", Tdesordenados[1].pregunta[aleatorio2[0]].contenido);
-		break;
+		flag=1;
 	}
 	else
 	{
 		printf("\nNo te entiendo. Escoge uno de los dos temas propuestos.\n");
+		gets(respuestatema);
 	}
 	}
 
