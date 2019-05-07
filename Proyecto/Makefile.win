@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = Proyecto/atrapa_un_millon.o Proyecto/mylib.o
-LINKOBJ  = Proyecto/atrapa_un_millon.o Proyecto/mylib.o
+OBJ      = atrapa_un_millon.o mylib.o
+LINKOBJ  = atrapa_un_millon.o mylib.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -24,8 +24,8 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-Proyecto/atrapa_un_millon.o: Proyecto/atrapa_un_millon.c
-	$(CC) -c Proyecto/atrapa_un_millon.c -o Proyecto/atrapa_un_millon.o $(CFLAGS)
+atrapa_un_millon.o: atrapa_un_millon.c
+	$(CC) -c atrapa_un_millon.c -o atrapa_un_millon.o $(CFLAGS)
 
-Proyecto/mylib.o: Proyecto/mylib.c
-	$(CC) -c Proyecto/mylib.c -o Proyecto/mylib.o $(CFLAGS)
+mylib.o: mylib.c
+	$(CC) -c mylib.c -o mylib.o $(CFLAGS)
