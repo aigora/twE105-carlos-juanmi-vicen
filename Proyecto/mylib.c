@@ -36,7 +36,6 @@ void vectorrand2(int aleatorio[NUMP])
 	srand (time(NULL));
 	aleatorio[0]=rand()%2;
 	for( i=1 ; i<NUMP ; i++)
-	for( i=1 ; i<NUMT1 ; i++)
 	{
 	aleatorio[i]=rand()%2;
 	for( j=i-1 ; j>=0 ; j--)
@@ -49,15 +48,7 @@ void vectorrand2(int aleatorio[NUMP])
 	}
 	}
 }
-void abrirficherospreguntas(void)
-{
-	FILE *pf, *pb1, *pb2, *pb3, *res1; 
-	pf = fopen("Ficheros/Nombres/Nombres.txt", "r");
-	pb1 = fopen("Ficheros/Preguntas/PreguntasBloque1", "r");
-	pb2 = fopen("Ficheros/Preguntas/PreguntasBloque2", "r");
-	pb3 = fopen("Ficheros/Preguntas/PreguntasBloque3", "r");
-	res1 = fopen("Ficheros/Preguntas/RespuestasBloque1", "r");
-}
+
 
 
 
