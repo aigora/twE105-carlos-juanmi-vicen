@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Cual de estos animales es un molusco? 
 Que animal da a luz en el agua?
 Cual de estos personajes NO vivio durante el Reinado de los Reyes Catolicos?
@@ -18,4 +19,9 @@ Cual de los siguientes personajes NO ha nacido en Castilla la Mancha?
 
 
 
+=======
+¿Cuál de estos animales es un molusco? 
+
+Pito negro, Chochín, Pardillo común o Ostión.
+>>>>>>> 816cefe46657716695089f3b727c36663c38d14e
 
