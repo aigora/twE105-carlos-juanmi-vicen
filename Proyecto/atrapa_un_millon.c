@@ -1,8 +1,12 @@
 #include "mylib.h"
 
+typedef struct {    //4 respuestas en cada pregunta
+char dentro[50];
+} answer;
+
 typedef struct {    //2 preguntas en cada tema
 char contenido[100];
-char respuesta[16][4];
+answer respuesta[4];
 } question;
 
 typedef struct {    //8 temas
@@ -39,7 +43,7 @@ int main() //programa principal
 			fscanf(pb1,"%[^\n]\n", &Tordenados[l].pregunta[j].contenido); 
 			for (k=0; k<4; k++)
 			{			
-				fscanf(res1, "%[^-]", &Tordenados[l].pregunta[j].respuesta[j][k]);	
+				fscanf(res1,"%[^-]\n", &Tordenados[l].pregunta[j].respuesta[k].dentro);	
 			}
 		}
 	}
@@ -52,7 +56,7 @@ int main() //programa principal
 		Tdesordenados[i]=Tordenados[posicion];
 	}
 	
-	
+printf("%s", Tordenados[3].pregunta[2].respuesta[4].dentro);		
 
 	printf("         ---------------------------------------------\n         ---------------------------------------------\n         ---------------------------------------------\n");
 	printf("         ********BIENVENIDO A ATRAPA UN MILLON********\n         ---------------------------------------------\n");
@@ -116,11 +120,21 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	if(strcmp(respuestatema,Tdesordenados[0].titulo)==0)
 	{
 		printf("\n%s", Tdesordenados[0].pregunta[aleatorio2[0]].contenido);
+		
+		
+		
+		
+		
 		break;
 	}
 	else if(strcmp(respuestatema,Tdesordenados[1].titulo)==0)
 	{
 		printf("\n%s", Tdesordenados[1].pregunta[aleatorio2[0]].contenido);
+		
+		
+		
+		
+		
 		break;
 	}
 	else
