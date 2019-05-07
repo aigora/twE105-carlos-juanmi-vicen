@@ -1,8 +1,7 @@
 #include "mylib.h"
 
 typedef struct {    //2 preguntas en cada tema
-
-char contenido[500];
+char contenido[100];
 char respuesta[16][4];
 } question;
 
@@ -15,12 +14,11 @@ int main() //programa principal
 {
 	srand (time(NULL)); 
 	char nombre[50], respuestanombre, nombrearchivo[50], respuestatema[50];
-	int i, j, l, k, posicion, flag; //posicion se usa en el desorden de los temas
+	int i, j, l, k, posicion; //posicion se usa en el desorden de los temas
 	int aleatorio8[NUMT1], aleatorio2[NUMP], loged=0;
 	Ntema Tordenados[NUMT1];
 	FILE *pf, *pb1, *pb2, *pb3, *res1;
 	strcpy(Tordenados[0].titulo,"ANIMALES");				
-	strcpy(Tordenados[0].titulo,"ANIMALES");
 	strcpy(Tordenados[1].titulo,"HISTORIA");
 	strcpy(Tordenados[2].titulo,"DEPORTE");
 	strcpy(Tordenados[3].titulo,"CIENCIA");
@@ -47,25 +45,6 @@ int main() //programa principal
 	}
 	vectorrand8(aleatorio8);  //creamos un vector aleatorio de 8
 	vectorrand2(aleatorio2);  //creamos un vector aleatorio de 2
-//abrirficherospreguntas(); //abre los ficheros de los nombres y de los bloques de las preguntas
-	
-	for (l=0; l<8; l++) //esto esta en obras
-{
-	for (j=0; j<2; j++)
-	{
-	for (k=0; k<4; k++)
-	{
-	while(feof(pb1)==0)
-	{
-		fscanf(pb1, " %[^-]; %s\n", &Tordenados[l].pregunta[j].contenido); 
-		fscanf(res1, " %[^-]; %s\n", &Tordenados[l].pregunta[j].respuesta[j][k]);
-	}
-	}
-	}
-}
-vectorrand8(aleatorio8);  //creamos un vector aleatorio de 8
-vectorrand2(aleatorio2);  //creamos un vector aleatorio de 2
-	
 	Ntema Tdesordenados[NUMT1]; //creamos la estructura de temas desordenados 
 	for(i=0; i<NUMT1; i++) //aleatoriza la estructura de temas que estaba ordenada
 	{
@@ -83,13 +62,12 @@ vectorrand2(aleatorio2);  //creamos un vector aleatorio de 2
 Para empezar, me gustaria saber tu nombre y apellidos para conocernos mejor:\n\n");
 
 	gets(nombre); //obtiene el nombre de la persona
-    pf = fopen("Ficheros/Nombres/Nombres.txt", "r");
     while(!feof(pf))
     {
         fscanf(pf, "%[^\n]\n", &nombrearchivo); //escanea un nombre hasta el primer salto de linea
         if(strcmp(nombrearchivo,nombre)==0) //significa que los dos nombres son iguales
         {
-            loged=1; //estÃ¡ logeado
+            loged=1; //está logeado
             escribeTexto("\nMuy bien ");
             escribeTexto(nombre);
             escribeTexto(", como veo ya has jugado a este juego y por lo tanto no hace falta que te expliquemos las normas. \n\
@@ -107,7 +85,6 @@ Asi pues, procederemos a la primera seleccion de temas:\n" );
 		escribeTexto(", como veo eres nuevo en este juego. Te gustaria que te explicaramos las reglas del juego?\n\n"); //pregunta si quieres que explique las normas o no
 	scanf("%c", &respuestanombre);
 	while ((respuestanombre!='s')&&(respuestanombre!='n')&&(respuestanombre!='S')&&(respuestanombre!='N')) //si no pone ni si ni no
-	while ((respuestanombre!='s')&&(respuestanombre='n')&&(respuestanombre='S')&&(respuestanombre='N')) //si no pone ni si ni no
 	{
 		escribeTexto("\nNo te entiendo. Por favor, escribe 'si' o 'no':\n\n");
 		scanf("%c", &respuestanombre);	
@@ -131,21 +108,20 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
     	break;
     }	
 	}
-	flag=1; //incluimos una bandera para poder parar el bucle while
 	//empezamos con la seleccion de temas
 	printf("\n\n		%s		%s\n\n", Tdesordenados[0].titulo, Tdesordenados[1].titulo);	
-	while(flag==1)
+	while(1)
 	{
 	gets(respuestatema);
 	if(strcmp(respuestatema,Tdesordenados[0].titulo)==0)
 	{
 		printf("\n%s", Tdesordenados[0].pregunta[aleatorio2[0]].contenido);
-		flag=0;
+		break;
 	}
 	else if(strcmp(respuestatema,Tdesordenados[1].titulo)==0)
 	{
 		printf("\n%s", Tdesordenados[1].pregunta[aleatorio2[0]].contenido);
-		flag=0;
+		break;
 	}
 	else
 	{
