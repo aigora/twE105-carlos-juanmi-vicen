@@ -1,6 +1,6 @@
 #include "mylib.h"
 
-typedef struct {    //4 respuestas en cada pregunta
+typedef struct {    ////4 respuestas en cada pregunta
 char dentro[50];
 } answer;
 
