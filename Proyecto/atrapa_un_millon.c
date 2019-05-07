@@ -2,7 +2,6 @@
 
 typedef struct {    //2 preguntas en cada tema
 
-char contenido[100];
 char contenido[500];
 char respuesta[16][4];
 } question;
@@ -16,8 +15,7 @@ int main() //programa principal
 {
 	srand (time(NULL)); 
 	char nombre[50], respuestanombre, nombrearchivo[50], respuestatema[50];
-	char nombre[50], respuestanombre, nombrearchivo[50];
-	int i, j, l, k, posicion; //posicion se usa en el desorden de los temas
+	int i, j, l, k, posicion, flag; //posicion se usa en el desorden de los temas
 	int aleatorio8[NUMT1], aleatorio2[NUMP], loged=0;
 	Ntema Tordenados[NUMT1];
 	FILE *pf, *pb1, *pb2, *pb3, *res1;
@@ -96,11 +94,10 @@ Para empezar, me gustaria saber tu nombre y apellidos para conocernos mejor:\n\n
             escribeTexto(nombre);
             escribeTexto(", como veo ya has jugado a este juego y por lo tanto no hace falta que te expliquemos las normas. \n\
 Asi pues, procederemos a la primera seleccion de temas:\n" );
-asi pues, procederemos a la primera seleccion de temas:\n" );
             break;
         }
     }
-    if(loged==0) //no est√° logeado
+    if(loged==0) //no est· logeado
     {
         fclose(pf);
         fopen("Ficheros/Nombres/Nombres.txt", "a");
@@ -134,20 +131,21 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
     	break;
     }	
 	}
+	flag=1; //incluimos una bandera para poder parar el bucle while
 	//empezamos con la seleccion de temas
 	printf("\n\n		%s		%s\n\n", Tdesordenados[0].titulo, Tdesordenados[1].titulo);	
-	while(1)
+	while(flag==1)
 	{
 	gets(respuestatema);
 	if(strcmp(respuestatema,Tdesordenados[0].titulo)==0)
 	{
 		printf("\n%s", Tdesordenados[0].pregunta[aleatorio2[0]].contenido);
-		break;
+		flag=0;
 	}
 	else if(strcmp(respuestatema,Tdesordenados[1].titulo)==0)
 	{
 		printf("\n%s", Tdesordenados[1].pregunta[aleatorio2[0]].contenido);
-		break;
+		flag=0;
 	}
 	else
 	{
