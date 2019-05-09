@@ -75,4 +75,3 @@ void vectorrand4(int aleatorio[NUMR1])
 
 
 
-
