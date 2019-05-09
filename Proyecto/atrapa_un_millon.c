@@ -111,9 +111,10 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	//empezamos con la seleccion de temas
 	printf("\n\n		%s		%s\n\n", Tdesordenados[0].titulo, Tdesordenados[1].titulo);	
 	flag=0;
-	gets(respuestatema);
+	
 	while(flag==0)
 	{
+	gets(respuestatema);
 	if(strcmp(respuestatema,Tdesordenados[0].titulo)==0)
 	{
 		printf("\n%s", Tdesordenados[0].pregunta[aleatorio2[0]].contenido);
@@ -126,8 +127,7 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	}
 	else
 	{
-		printf("\nNo te entiendo. Escoge uno de los dos temas propuestos.\n");
-		gets(respuestatema);
+		printf("\nEscoge uno de los dos temas propuestos.\n");
 	}
 	}
 
