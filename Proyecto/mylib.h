@@ -13,3 +13,4 @@
 void escribeTexto(char vector[]); //funcion para que las letras vayan con retraso
 void vectorrand8(int aleatorio[NUMT1]); //generador de vector aleatorio de 8
 void vectorrand2(int aleatorio[NUMP]); //generador de vector aleatorio de 2
+void vectorrand4(int aleatorio[NUMR1]); //generador de vector aleatorio de 4
