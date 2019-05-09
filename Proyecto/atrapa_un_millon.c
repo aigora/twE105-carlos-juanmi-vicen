@@ -116,12 +116,12 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	printf("\n\n		%s		%s\n\n", Tdesordenados[0].titulo, Tdesordenados[1].titulo);	
 	flag=0;
 	
-	while(flag==0)
+
 	getch(); //pulsa cualquier tecla para continuar
 	fflush(stdin); //pa que no se buguee
 	system("cls"); //limpia la consola
+	
 	printf("\n\n		%s		%s\n\n              		 ", Tdesordenados[0].titulo, Tdesordenados[1].titulo);	
-	while(1)
 	gets(respuestatema);
 	if(strcmp(respuestatema,Tdesordenados[0].titulo)==0)
 	{
@@ -130,7 +130,10 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 		printf("B) %s\n", Tdesordenados[0].pregunta[aleatorio2[0]].respuesta[aleatorio4[1]].dentro);
 		printf("C) %s\n", Tdesordenados[0].pregunta[aleatorio2[0]].respuesta[aleatorio4[2]].dentro);
 		printf("D) %s\n", Tdesordenados[0].pregunta[aleatorio2[0]].respuesta[aleatorio4[3]].dentro);
-		printf("Tienes %.0f euros.\nCuanto dinero quieres apostar a:\nA--> ",dinero);
+		printf("Tienes %.0f euros.\nCuanto dinero quieres apostar a:\n ",dinero);
+		while(flag==0)
+		{
+		printf("\nA-->");
 		scanf("%i",&apuestaA);
 		printf("\nB--> ");
 		scanf("%i",&apuestaB);
@@ -138,6 +141,8 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 		scanf("%i",&apuestaC);
 		printf("\nD--> ");
 		scanf("%i",&apuestaD);
+		flag=repDin(&apuestaA,&apuestaB,&apuestaC,&apuestaD,&dinero);
+		}
 		if(strcmp(Tdesordenados[0].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados[0].pregunta[aleatorio2[0]].respuesta[aleatorio4[0]].dentro)==0)
 		dinero=apuestaA;
 		if(strcmp(Tdesordenados[0].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados[0].pregunta[aleatorio2[0]].respuesta[aleatorio4[1]].dentro)==0)
@@ -149,7 +154,7 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 		printf("\n\nLa respuesta correcta es... %s.\nTe queda un total de %.0f euros", Tdesordenados[0].pregunta[aleatorio2[0]].respuesta[0].dentro, dinero);
 
 		
-		break;
+	
 	}
 	else if(strcmp(respuestatema,Tdesordenados[1].titulo)==0)
 	{
@@ -159,7 +164,7 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 		
 		
 		
-		break;
+	
 	}
 	else
 	{
@@ -171,35 +176,7 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	}
 	}
 
-
-
-
-
-
-
-
-    
-    //se generan  dos temas aleatorios
-    /*switch(tema)
-    {
-    	case 'tema1':
-    		//printea aleatoriamente una de las preguntas del tema 1 y sus posibles respuestas
-    		//apuesta el dinero en las posibles respuestas
-    		switch(respuesta)
-    		{
-    			case 'si':
-    				//se vuelve a repetir el reparto
-    				break;
-    			case 'no':
-    				//printea la respuesta y el dinero conservado
-			}  		
-    		break;
-    	case 'tema2':
-    		//igual que en tema1
-    		break;
-    //si te quedas sin dinero, se acaba el juego. Si no, pasas a la siguiente pregunta
-	}*/
     
 
-}
+
 
