@@ -5,13 +5,8 @@ char dentro[50];
 } answer;
 
 typedef struct {    //2 preguntas en cada tema
-
 char contenido[200];
 answer respuesta[4];
-
-char contenido[100];
-char respuesta[16][4];
-
 } question;
 
 typedef struct {    //8 temas
@@ -22,16 +17,10 @@ question pregunta[2];
 int main() //programa principal
 {
 	srand (time(NULL)); 
-
 	char nombre[50], respuestanombre, nombrearchivo[50], respuestatema[50], basura[5];
 	int i, j, l, k, apuestaA, apuestaB, apuestaC, apuestaD, posicion; //posicion se usa en el desorden de los temas
 	int aleatorio8[NUMT1], aleatorio2[NUMP], aleatorio4[NUMR1], loged=0;
 	float dinero=1000000;
-
-	char nombre[50], respuestanombre, nombrearchivo[50], respuestatema[50];
-	int i, j, l, k, posicion, flag; //posicion se usa en el desorden de los temas
-	int aleatorio8[NUMT1], aleatorio2[NUMP], loged=0;
-
 	Ntema Tordenados[NUMT1];
 	FILE *pf, *pb1, *pb2, *pb3, *res1;
 	strcpy(Tordenados[0].titulo,"ANIMALES");				
@@ -55,20 +44,13 @@ int main() //programa principal
 			fscanf(pb1,"%[^\n]\n", &Tordenados[l].pregunta[j].contenido); 
 			for (k=0; k<4; k++)
 			{			
-
 				fscanf(res1,"%[^\n]\n", &Tordenados[l].pregunta[j].respuesta[k].dentro);	
-
-				fscanf(res1, "%[^-]", &Tordenados[l].pregunta[j].respuesta[j][k]);	
-
 			}
 		}
 	}
 	vectorrand8(aleatorio8);  //creamos un vector aleatorio de 8
 	vectorrand2(aleatorio2);  //creamos un vector aleatorio de 2
-
 	vectorrand4(aleatorio4);  //creamos un vector aleatorio de 4
-
-
 	Ntema Tdesordenados[NUMT1]; //creamos la estructura de temas desordenados 
 	for(i=0; i<NUMT1; i++) //aleatoriza la estructura de temas que estaba ordenada
 	{
@@ -95,7 +77,6 @@ Para empezar, me gustaria saber tu nombre y apellidos para conocernos mejor:\n\n
             escribeTexto("\nMuy bien ");
             escribeTexto(nombre);
             escribeTexto(", como veo ya has jugado a este juego y por lo tanto no hace falta que te expliquemos las normas. \n\
-
 Asi pues, procederemos a la primera seleccion de temas: (pulsa intro para continuar)\n" );
             break;
         }
@@ -109,11 +90,7 @@ Asi pues, procederemos a la primera seleccion de temas: (pulsa intro para contin
 		escribeTexto(nombre);
 		escribeTexto(", como veo eres nuevo en este juego. Te gustaria que te explicaramos las reglas del juego?\n\n"); //pregunta si quieres que explique las normas o no
 	scanf("%c", &respuestanombre);
-
 	while ((respuestanombre!='S')&&(respuestanombre!='N')) //si no pone ni si ni no
-
-	while ((respuestanombre!='s')&&(respuestanombre!='n')&&(respuestanombre!='S')&&(respuestanombre!='N')) //si no pone ni si ni no
-
 	{
 		escribeTexto("\nNo te entiendo. Por favor, escribe 'si' o 'no':\n\n");
 		scanf("%c", &respuestanombre);	
@@ -136,7 +113,6 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
     }	
 	}
 	//empezamos con la seleccion de temas
-
 	getch(); //pulsa cualquier tecla para continuarç
 	fflush(stdin); //pa que no se buguee
 	system("cls"); //limpia la consola
@@ -185,27 +161,6 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	else
 	{
 		printf("\nNo te entiendo. Por favor, escoge uno de los temas propuestos.\n\n");
-
-	printf("\n\n		%s		%s\n\n", Tdesordenados[0].titulo, Tdesordenados[1].titulo);	
-	flag=0;
-	gets(respuestatema);
-	while(flag==0)
-	{
-	if(strcmp(respuestatema,Tdesordenados[0].titulo)==0)
-	{
-		printf("\n%s", Tdesordenados[0].pregunta[aleatorio2[0]].contenido);
-		flag=1;
-	}
-	else if(strcmp(respuestatema,Tdesordenados[1].titulo)==0)
-	{
-		printf("\n%s", Tdesordenados[1].pregunta[aleatorio2[0]].contenido);
-		flag=1;
-	}
-	else
-	{
-		printf("\nNo te entiendo. Escoge uno de los dos temas propuestos.\n");
-		gets(respuestatema);
-
 	}
 	}
 
