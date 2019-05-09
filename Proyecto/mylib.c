@@ -49,7 +49,24 @@ void vectorrand2(int aleatorio[NUMP])
 	}
 }
 
-
+void vectorrand4(int aleatorio[NUMR1])
+{
+	int i, j;	
+	srand (time(NULL));
+	aleatorio[0]=rand()%4;
+	for( i=1 ; i<NUMR1 ; i++)
+	{
+	aleatorio[i]=rand()%4;
+	for( j=i-1 ; j>=0 ; j--)
+	{
+	while(aleatorio[i]==aleatorio[j])
+	{
+	aleatorio[i]=rand()%4;
+	j=i-1;
+	}
+	}
+	}
+}
 
 
 
