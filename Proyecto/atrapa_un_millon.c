@@ -112,8 +112,7 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
     	break;
     }	
 	}
-	//empezamos con la seleccion de temas
-	printf("\n\n		%s		%s\n\n", Tdesordenados[0].titulo, Tdesordenados[1].titulo);	
+	//empezamos con la seleccion de temas	
 	flag=0;
 	
 
@@ -141,7 +140,7 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 		scanf("%i",&apuestaC);
 		printf("\nD--> ");
 		scanf("%i",&apuestaD);
-		flag=repDin(&apuestaA,&apuestaB,&apuestaC,&apuestaD,&dinero);
+		flag=ComprobarDinero(&apuestaA,&apuestaB,&apuestaC,&apuestaD,&dinero);
 		}
 		if(strcmp(Tdesordenados[0].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados[0].pregunta[aleatorio2[0]].respuesta[aleatorio4[0]].dentro)==0)
 		dinero=apuestaA;
