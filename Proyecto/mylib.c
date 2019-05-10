@@ -68,6 +68,24 @@ void vectorrand4(int aleatorio[NUMR1])
 	}
 }
 
+void vectorrand6(int aleatorio[NUMR2])
+{
+	int i, j;	
+	srand (time(NULL));
+	aleatorio[0]=rand()%6;
+	for( i=1 ; i<NUMR2 ; i++)
+	{
+	aleatorio[i]=rand()%6;
+	for( j=i-1 ; j>=0 ; j--)
+	{
+	while(aleatorio[i]==aleatorio[j])
+	{
+	aleatorio[i]=rand()%6;
+	j=i-1;
+	}
+	}
+	}
+}
 
 int ComprobarDinero(float *papuestaA,float *papuestaB,float *papuestaC,float *papuestaD,float *pdinero, float *pfajos)
 {
