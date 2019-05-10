@@ -115,12 +115,11 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	//empezamos con la seleccion de temas	
 	
 	for(i=0;i<7;i=i+2)
-	{
+{
 	flag=0;
 	getch(); //pulsa cualquier tecla para continuar
 	fflush(stdin); //pa que no se buguee
 	system("cls"); //limpia la consola
-	
 	printf("\n\n		%s		%s\n\n              		 ", Tdesordenados[i].titulo, Tdesordenados[i+1].titulo);	
 	gets(respuestatema);
 	if(strcmp(respuestatema,Tdesordenados[i].titulo)==0)
@@ -152,7 +151,7 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 		if(strcmp(Tdesordenados[i].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados[i].pregunta[aleatorio2[0]].respuesta[aleatorio4[3]].dentro)==0)
 		dinero=apuestaD*25000;
 		fajos=dinero/25000;
-		printf("\n\nLa respuesta correcta es... %s.\nTe queda un total de %.0f euros(%.0f fajos)\n\n", Tdesordenados[i].pregunta[aleatorio2[0]].respuesta[0].dentro, dinero, fajos);
+		printf("\n\nLa respuesta correcta es... %s.\nTe queda un total de %.0f euros(%.0f fajos)\nPulsa intro para continuar a la siguiente pregunta.\n", Tdesordenados[i].pregunta[aleatorio2[0]].respuesta[0].dentro, dinero, fajos);
 	if(dinero==0)
 	{
 		escribeTexto("Te has quedado sin dinero, esperemos que tengas mejor suerte la proxima vez");
@@ -190,7 +189,7 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 		if(strcmp(Tdesordenados[i+1].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados[i+1].pregunta[aleatorio2[0]].respuesta[aleatorio4[3]].dentro)==0)
 		dinero=apuestaD*25000;
 		fajos=dinero/25000;
-		printf("\n\nLa respuesta correcta es... %s.\nTe queda un total de %.0f euros(%.0f fajos)\n\n", Tdesordenados[i+1].pregunta[aleatorio2[0]].respuesta[0].dentro, dinero, fajos);
+		printf("\n\nLa respuesta correcta es... %s.\nTe queda un total de %.0f euros(%.0f fajos)\nPulsa intro para continuar a la siguiente pregunta.\n", Tdesordenados[i+1].pregunta[aleatorio2[0]].respuesta[0].dentro, dinero, fajos);
 	if(dinero==0)
 	{
 		escribeTexto("Te has quedado sin dinero, esperemos que tengas mejor suerte la proxima vez");
