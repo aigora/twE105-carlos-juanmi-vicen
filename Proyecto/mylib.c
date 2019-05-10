@@ -69,20 +69,29 @@ void vectorrand4(int aleatorio[NUMR1])
 }
 
 
-int repDin(int *papuestaA,int *papuestaB,int *papuestaC,int *papuestaD,float *pdinero)
+int ComprobarDinero(int *papuestaA,int *papuestaB,int *papuestaC,int *papuestaD,float *pdinero)
 {
-	if(*papuestaA+*papuestaB+*papuestaC+*papuestaD<*pdinero)
+	if((*papuestaA+*papuestaB+*papuestaC+*papuestaD)<*pdinero)
 	{
 		escribeTexto("Debes repartir todo el dinero");
 		return 0;
 	}
-	else if(*papuestaA+*papuestaB+*papuestaC+*papuestaD>*pdinero)
+	else if((*papuestaA+*papuestaB+*papuestaC+*papuestaD)>*pdinero)
 	{
 		escribeTexto("No puedes repartir más dinero del que tienes");
 		return 0;
 	}
 	else
+	{
+	if((*papuestaA!=0)&&(*papuestaB!=0)&&(*papuestaC!=0)&&(*papuestaD!=0))
+	{
+		escribeTexto("Te recuerdo que solo puedes repartir el dinero en tres opciones de las cuatro posibles");
+		return 0;
+	}
+	else
 	return 1;
+	}
+
 	
 }
 
