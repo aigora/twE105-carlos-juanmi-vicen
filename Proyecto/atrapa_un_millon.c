@@ -18,31 +18,29 @@ int main() //programa principal
 {
 	srand (time(NULL)); 
 	char nombre[50], respuestanombre, nombrearchivo[50], respuestatema[50], basura[5];
-	int i, j, l, k, posicion, flag; //posicion se usa en el desorden de los temas
-	int aleatorio8[NUMT1], aleatorio2[NUMP], aleatorio4[NUMR1], loged=0;
+	int i, j, l, k, x=0, posicion, flag; //posicion se usa en el desorden de los temas
+	int aleatorio8[NUMT1], aleatorio2[NUMP], aleatorio4[NUMR1], aleatorio6[NUMT2], loged=0;
 	float dinero=1000000, fajos=40, apuestaA, apuestaB, apuestaC, apuestaD;
 	Ntema Tordenados[NUMT1];
-	FILE *pf, *pb1, *pb2, *pb3, *res1;
-	strcpy(Tordenados[0].titulo,"ANIMALES");				
-	strcpy(Tordenados[1].titulo,"HISTORIA");
-	strcpy(Tordenados[2].titulo,"DEPORTE");
-	strcpy(Tordenados[3].titulo,"CIENCIA");
-	strcpy(Tordenados[4].titulo,"INVENTOS");
-	strcpy(Tordenados[5].titulo,"LITERATURA");
-	strcpy(Tordenados[6].titulo,"ARTE");
-	strcpy(Tordenados[7].titulo,"GEOGRAFIA");
+	FILE *pf, *pb1, *pb2, *pb3, *res1, *res2, *res3, *tem1, *tem2, *tem3;
 	//abre los ficheros de los nombres y de los bloques de las preguntas
 	pf = fopen("Ficheros/Nombres/Nombres.txt", "r");
 	pb1 = fopen("Ficheros/Preguntas/PreguntasBloque1.txt", "r");
 	pb2 = fopen("Ficheros/Preguntas/PreguntasBloque2.txt", "r");
 	pb3 = fopen("Ficheros/Preguntas/PreguntasBloque3.txt", "r");
 	res1 = fopen("Ficheros/Preguntas/RespuestasBloque1.txt", "r");
-	for (l=0; l<8; l++) 
+	res2 = fopen("Ficheros/Preguntas/RespuestasBloque2.txt", "r");
+	res3 = fopen("Ficheros/Preguntas/RespuestasBloque3.txt", "r");
+	tem1 = fopen("Ficheros/Temas/Temas1.txt", "r");
+	tem2 = fopen("Ficheros/Temas/Temas2.txt", "r");
+	tem3 = fopen("Ficheros/Temas/Temas3.txt", "r");
+	for (l=0; l<NUMT1; l++) 
 	{
-		for (j=0; j<2; j++)
+		fscanf(tem1,"%[^\n]\n", &Tordenados[l].titulo);
+		for (j=0; j<NUMP; j++)
 		{
 			fscanf(pb1,"%[^\n]\n", &Tordenados[l].pregunta[j].contenido); 
-			for (k=0; k<4; k++)
+			for (k=0; k<NUMR1; k++)
 			{			
 				fscanf(res1,"%[^\n]\n", &Tordenados[l].pregunta[j].respuesta[k].dentro);	
 			}
@@ -57,12 +55,10 @@ int main() //programa principal
 		posicion=aleatorio8[i];						
 		Tdesordenados[i]=Tordenados[posicion];
 	}	
-
-
 	printf("         ---------------------------------------------\n         ---------------------------------------------\n         ---------------------------------------------\n");
 	printf("         ********BIENVENIDO A ATRAPA UN MILLON********\n         ---------------------------------------------\n");
 	printf("         ---------------------------------------------\n         ---------------------------------------------\n\n");
-	
+
 	escribeTexto("Hola!, soy Carlos y te doy la bienvenida a ATRAPA UN MILLON.\n\
 Antes de nada, me gustaria pedirte que durante el juego solo utilices mayusculas.\n\
 Para empezar, me gustaria saber tu nombre y apellidos para conocernos mejor:\n\n");
@@ -120,7 +116,9 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	getch(); //pulsa cualquier tecla para continuar
 	fflush(stdin); //pa que no se buguee
 	system("cls"); //limpia la consola
-	printf("\n\n		%s		%s\n\n              		 ", Tdesordenados[i].titulo, Tdesordenados[i+1].titulo);	
+	x=x+1;
+	printf("\n		BLOQUE 1 - Pregunta %i\n", x);
+	printf("\n		%s		%s\n\n              		 ", Tdesordenados[i].titulo, Tdesordenados[i+1].titulo);	
 	gets(respuestatema);
 	if(strcmp(respuestatema,Tdesordenados[i].titulo)==0)
 	{
@@ -129,10 +127,10 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 		printf("B) %s\n", Tdesordenados[i].pregunta[aleatorio2[0]].respuesta[aleatorio4[1]].dentro);
 		printf("C) %s\n", Tdesordenados[i].pregunta[aleatorio2[0]].respuesta[aleatorio4[2]].dentro);
 		printf("D) %s\n", Tdesordenados[i].pregunta[aleatorio2[0]].respuesta[aleatorio4[3]].dentro);
-		printf("Tienes %.0f euros,es decir %.0f fajos\nCuantos fajos quieres apostar a:\n ",dinero, fajos);
+		printf("Tienes %.0f euros,es decir %.0f fajos.\nCuantos fajos quieres apostar a:\n ",dinero, fajos);
 		while(flag==0)
 		{
-		printf("\nA-->");
+		printf("\nA--> ");
 		scanf("%f",&apuestaA);
 		printf("\nB--> ");
 		scanf("%f",&apuestaB);
@@ -167,10 +165,10 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 		printf("B) %s\n", Tdesordenados[i+1].pregunta[aleatorio2[0]].respuesta[aleatorio4[1]].dentro);
 		printf("C) %s\n", Tdesordenados[i+1].pregunta[aleatorio2[0]].respuesta[aleatorio4[2]].dentro);
 		printf("D) %s\n", Tdesordenados[i+1].pregunta[aleatorio2[0]].respuesta[aleatorio4[3]].dentro);
-		printf("Tienes %.0f euros,es decir %.0f fajos\nCuantos fajos quieres apostar a:\n ",dinero, fajos);
+		printf("Tienes %.0f euros,es decir %.0f fajos.\nCuantos fajos quieres apostar a:\n ",dinero, fajos);
 		while(flag==0)
 		{
-		printf("\nA-->");
+		printf("\nA--> ");
 		scanf("%f",&apuestaA);
 		printf("\nB--> ");
 		scanf("%f",&apuestaB);
@@ -194,18 +192,32 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	{
 		escribeTexto("Te has quedado sin dinero, esperemos que tengas mejor suerte la proxima vez");
 		return 0;
-	}
-		
-	
+	}	
 	}
 	else
 	{
-
-		printf("\nEscoge uno de los dos temas propuestos.\n");
-
 		printf("\nNo te entiendo. Por favor, escoge uno de los temas propuestos.\n\n");
-
 	}
+	}
+	
+	
+	for (l=0; l<NUMT2; l++) 
+	{
+		fscanf(tem2,"%[^\n]\n", &Tordenados[l].titulo);
+		for (j=0; j<NUMP; j++)
+		{
+			fscanf(pb2,"%[^\n]\n", &Tordenados[l].pregunta[j].contenido); 
+			for (k=0; k<NUMR2; k++)
+			{			
+				fscanf(res2,"%[^\n]\n", &Tordenados[l].pregunta[j].respuesta[k].dentro);	
+			}
+		}
+	}
+	vectorrand6(aleatorio6);  //creamos un vector aleatorio de 6
+	for(i=0; i<NUMT2; i++) //aleatoriza la estructura de temas que estaba ordenada
+	{
+		posicion=aleatorio6[i];						
+		Tdesordenados[i]=Tordenados[posicion];
 	}
 }
     
