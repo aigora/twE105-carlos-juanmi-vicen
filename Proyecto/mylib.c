@@ -158,7 +158,7 @@ int ComprobarDinero2(float *papuestaA,float *papuestaB,float *papuestaC,float *p
 	}
 	else if((*papuestaA!=0)&&(*papuestaB!=0)&&(*papuestaC!=0))
 	{
-		escribeTexto("Te recuerdo que solo puedes repartir el dinero en tres opciones de las cuatro posibles");
+		escribeTexto("Te recuerdo que solo puedes repartir el dinero en dos opciones de las tres posibles");
 		return 0;
 	}
 	escribeTexto("Seguro que quieres repartir el dinero de esta manera?\n");
@@ -195,7 +195,7 @@ int ComprobarDinero3(float *papuestaA,float *papuestaB,float *pdinero, float *pf
 	}
 	else if((*papuestaA!=0)&&(*papuestaB!=0))
 	{
-		escribeTexto("Te recuerdo que solo puedes repartir el dinero en tres opciones de las cuatro posibles");
+		escribeTexto("Te recuerdo que solo puedes repartir el dinero en una opcion de las dos posibles");
 		return 0;
 	}
 	escribeTexto("Seguro que quieres repartir el dinero de esta manera?\n");
