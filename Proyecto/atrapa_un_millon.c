@@ -18,7 +18,7 @@ int main() //programa principal
 {
 	srand (time(NULL)); 
 	char nombre[50], respuestanombre, nombrearchivo[50], respuestatema[50], basura[5];
-	int i, j, l, k, x=0, posicion, flag; //posicion se usa en el desorden de los temas
+	int i, j, l, k, x=0, posicion, flag, correcto; //posicion se usa en el desorden de los temas
 	int aleatorio8[NUMT1], aleatorio2[NUMP], aleatorio4[NUMR1], aleatorio6[NUMT2], aleatorio3[NUMR3], loged=0;
 	float dinero=1000000, fajos=40, apuestaA, apuestaB, apuestaC, apuestaD;
 	Ntema Tordenados1[NUMT1];
@@ -117,6 +117,7 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 
 	for(i=0;i<7;i=i+2)
 	{
+	correcto=0;
 	flag=0;
 	getch(); //pulsa cualquier tecla para continuar
 	fflush(stdin); //pa que no se buguee
@@ -124,9 +125,12 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	x=x+1;
 	printf("\n		BLOQUE 1 - Pregunta %i\n", x);
 	printf("\n		%s		%s\n\n              		 ", Tdesordenados1[i].titulo, Tdesordenados1[i+1].titulo);	
+	while(correcto==0)
+	{
 	gets(respuestatema);
 	if(strcmp(respuestatema,Tdesordenados1[i].titulo)==0)
 	{
+		correcto=1;
 		printf("\n%s\n", Tdesordenados1[i].pregunta[aleatorio2[0]].contenido);				
 		printf("A) %s\n", Tdesordenados1[i].pregunta[aleatorio2[0]].respuesta[aleatorio4[0]].dentro);
 		printf("B) %s\n", Tdesordenados1[i].pregunta[aleatorio2[0]].respuesta[aleatorio4[1]].dentro);
@@ -156,6 +160,7 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	}
 	else if(strcmp(respuestatema,Tdesordenados1[i+1].titulo)==0)
 	{
+		correcto=1;
 		printf("\n%s\n", Tdesordenados1[i+1].pregunta[aleatorio2[0]].contenido);				
 		printf("A) %s\n", Tdesordenados1[i+1].pregunta[aleatorio2[0]].respuesta[aleatorio4[0]].dentro);
 		printf("B) %s\n", Tdesordenados1[i+1].pregunta[aleatorio2[0]].respuesta[aleatorio4[1]].dentro);
@@ -187,6 +192,7 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	{
 		printf("\nNo te entiendo. Por favor, escoge uno de los temas propuestos.\n\n");
 	}
+	}
 	}  
 	//empieza el segundo bloque	
 	for (l=0; l<NUMT2; l++) 
@@ -210,6 +216,7 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	x=0;
 	for(i=0;i<6;i=i+2)
 	{
+	correcto=0;
 	flag=0; 
 	getch();	//pulsa cualquier tecla para continuar
 	fflush(stdin); //pa que no se buguee
@@ -218,9 +225,12 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	printf("\n		BLOQUE 2 - Pregunta %i\n", x);
 	printf("\n		%s		%s\n\n              		 ", Tdesordenados2[i].titulo, Tdesordenados2[i+1].titulo);	
 	fflush(stdin);
+	while (correcto==0)
+	{
 	gets(respuestatema);
 	if(strcmp(respuestatema,Tdesordenados2[i].titulo)==0)
 	{
+		correcto=1;
 		printf("\n%s\n", Tdesordenados2[i].pregunta[aleatorio2[0]].contenido);				
 		printf("A) %s\n", Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[aleatorio3[0]].dentro);
 		printf("B) %s\n", Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[aleatorio3[1]].dentro);
@@ -248,6 +258,7 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	}
 	else if(strcmp(respuestatema,Tdesordenados2[i+1].titulo)==0)
 	{
+		correcto=1;
 		printf("\n%s\n", Tdesordenados2[i].pregunta[aleatorio2[0]].contenido);				
 		printf("A) %s\n", Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[aleatorio3[0]].dentro);
 		printf("B) %s\n", Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[aleatorio3[1]].dentro);
@@ -277,6 +288,7 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	{
 		printf("\nNo te entiendo. Por favor, escoge uno de los temas propuestos.\n\n");
 	}
+	}
 	}  
 	//ULTIMA PREGUNTA
 	for (l=0; l<NUMT3; l++) 
@@ -295,16 +307,20 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	{
 		posicion=aleatorio2[i];						
 		Tdesordenados3[i]=Tordenados3[posicion];
-	}	
+	}
+	correcto=0;	
 	flag=0;
 	getch(); //pulsa cualquier tecla para continuar
 	fflush(stdin); //pa que no se buguee
 	system("cls"); //limpia la consola
 	printf("\n		---------ULTIMA PREGUNTA---------\n");
 	printf("\n		%s		%s\n\n              		 ", Tdesordenados3[0].titulo, Tdesordenados3[1].titulo);	
+	while (correcto==0)
+	{
 	gets(respuestatema);
 	if(strcmp(respuestatema,Tdesordenados3[0].titulo)==0)
 	{
+		correcto=1;
 		printf("\n%s\n", Tdesordenados3[0].pregunta[aleatorio2[0]].contenido);				
 		printf("A) %s\n", Tdesordenados3[0].pregunta[aleatorio2[0]].respuesta[aleatorio2[0]].dentro);
 		printf("B) %s\n", Tdesordenados3[0].pregunta[aleatorio2[0]].respuesta[aleatorio2[1]].dentro);
@@ -328,6 +344,7 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	}
 	else if(strcmp(respuestatema,Tdesordenados3[1].titulo)==0)
 	{
+		correcto=1;
 		printf("\n%s\n", Tdesordenados3[1].pregunta[aleatorio2[0]].contenido);				
 		printf("A) %s\n", Tdesordenados3[1].pregunta[aleatorio2[0]].respuesta[aleatorio2[0]].dentro);
 		printf("B) %s\n", Tdesordenados3[1].pregunta[aleatorio2[0]].respuesta[aleatorio2[1]].dentro);
@@ -352,6 +369,7 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	else
 	{
 		printf("\nNo te entiendo. Por favor, escoge uno de los temas propuestos.\n\n");
+	}
 	}
 }
     
