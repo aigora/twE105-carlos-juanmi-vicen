@@ -5,12 +5,12 @@ char dentro[50];
 } answer;
 
 typedef struct {    //2 preguntas en cada tema
-char contenido[200];
+char contenido[300];
 answer respuesta[4];
 } question;
 
 typedef struct {    //8 temas
-char titulo[15];
+char titulo[30];
 question pregunta[2];
 } Ntema; 		
 
@@ -19,9 +19,11 @@ int main() //programa principal
 	srand (time(NULL)); 
 	char nombre[50], respuestanombre, nombrearchivo[50], respuestatema[50], basura[5];
 	int i, j, l, k, x=0, posicion, flag; //posicion se usa en el desorden de los temas
-	int aleatorio8[NUMT1], aleatorio2[NUMP], aleatorio4[NUMR1], aleatorio6[NUMT2], loged=0;
+	int aleatorio8[NUMT1], aleatorio2[NUMP], aleatorio4[NUMR1], aleatorio6[NUMT2], aleatorio3[NUMR3], loged=0;
 	float dinero=1000000, fajos=40, apuestaA, apuestaB, apuestaC, apuestaD;
-	Ntema Tordenados[NUMT1];
+	Ntema Tordenados1[NUMT1];
+	Ntema Tordenados2[NUMT2];
+	Ntema Tordenados3[NUMT3];
 	FILE *pf, *pb1, *pb2, *pb3, *res1, *res2, *res3, *tem1, *tem2, *tem3;
 	//abre los ficheros de los nombres y de los bloques de las preguntas
 	pf = fopen("Ficheros/Nombres/Nombres.txt", "r");
@@ -36,24 +38,27 @@ int main() //programa principal
 	tem3 = fopen("Ficheros/Temas/Temas3.txt", "r");
 	for (l=0; l<NUMT1; l++) 
 	{
-		fscanf(tem1,"%[^\n]\n", &Tordenados[l].titulo);
+		fscanf(tem1,"%[^\n]\n", &Tordenados1[l].titulo);
 		for (j=0; j<NUMP; j++)
 		{
-			fscanf(pb1,"%[^\n]\n", &Tordenados[l].pregunta[j].contenido); 
+			fscanf(pb1,"%[^\n]\n", &Tordenados1[l].pregunta[j].contenido); 
 			for (k=0; k<NUMR1; k++)
 			{			
-				fscanf(res1,"%[^\n]\n", &Tordenados[l].pregunta[j].respuesta[k].dentro);	
+				fscanf(res1,"%[^\n]\n", &Tordenados1[l].pregunta[j].respuesta[k].dentro);	
 			}
 		}
 	}
 	vectorrand8(aleatorio8);  //creamos un vector aleatorio de 8
 	vectorrand2(aleatorio2);  //creamos un vector aleatorio de 2
 	vectorrand4(aleatorio4);  //creamos un vector aleatorio de 4
-	Ntema Tdesordenados[NUMT1]; //creamos la estructura de temas desordenados 
+	vectorrand3(aleatorio3);  //creamos un vector aleatorio de 3
+	Ntema Tdesordenados1[NUMT1]; //creamos la estructura de temas desordenados 
+	Ntema Tdesordenados2[NUMT2];
+	Ntema Tdesordenados3[NUMT3];
 	for(i=0; i<NUMT1; i++) //aleatoriza la estructura de temas que estaba ordenada
 	{
 		posicion=aleatorio8[i];						
-		Tdesordenados[i]=Tordenados[posicion];
+		Tdesordenados1[i]=Tordenados1[posicion];
 	}	
 	printf("         ---------------------------------------------\n         ---------------------------------------------\n         ---------------------------------------------\n");
 	printf("         ********BIENVENIDO A ATRAPA UN MILLON********\n         ---------------------------------------------\n");
@@ -109,88 +114,72 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
     }	
 	}
 	//empezamos con la seleccion de temas	
-	
+
 	for(i=0;i<7;i=i+2)
-{
+	{
 	flag=0;
 	getch(); //pulsa cualquier tecla para continuar
 	fflush(stdin); //pa que no se buguee
 	system("cls"); //limpia la consola
 	x=x+1;
 	printf("\n		BLOQUE 1 - Pregunta %i\n", x);
-	printf("\n		%s		%s\n\n              		 ", Tdesordenados[i].titulo, Tdesordenados[i+1].titulo);	
+	printf("\n		%s		%s\n\n              		 ", Tdesordenados1[i].titulo, Tdesordenados1[i+1].titulo);	
 	gets(respuestatema);
-	if(strcmp(respuestatema,Tdesordenados[i].titulo)==0)
+	if(strcmp(respuestatema,Tdesordenados1[i].titulo)==0)
 	{
-		printf("\n%s\n", Tdesordenados[i].pregunta[aleatorio2[0]].contenido);				
-		printf("A) %s\n", Tdesordenados[i].pregunta[aleatorio2[0]].respuesta[aleatorio4[0]].dentro);
-		printf("B) %s\n", Tdesordenados[i].pregunta[aleatorio2[0]].respuesta[aleatorio4[1]].dentro);
-		printf("C) %s\n", Tdesordenados[i].pregunta[aleatorio2[0]].respuesta[aleatorio4[2]].dentro);
-		printf("D) %s\n", Tdesordenados[i].pregunta[aleatorio2[0]].respuesta[aleatorio4[3]].dentro);
+		printf("\n%s\n", Tdesordenados1[i].pregunta[aleatorio2[0]].contenido);				
+		printf("A) %s\n", Tdesordenados1[i].pregunta[aleatorio2[0]].respuesta[aleatorio4[0]].dentro);
+		printf("B) %s\n", Tdesordenados1[i].pregunta[aleatorio2[0]].respuesta[aleatorio4[1]].dentro);
+		printf("C) %s\n", Tdesordenados1[i].pregunta[aleatorio2[0]].respuesta[aleatorio4[2]].dentro);
+		printf("D) %s\n", Tdesordenados1[i].pregunta[aleatorio2[0]].respuesta[aleatorio4[3]].dentro);
 		printf("Tienes %.0f euros,es decir %.0f fajos.\nCuantos fajos quieres apostar a:\n ",dinero, fajos);
 		while(flag==0)
 		{
-		printf("\nA--> ");
-		scanf("%f",&apuestaA);
-		printf("\nB--> ");
-		scanf("%f",&apuestaB);
-		printf("\nC--> ");
-		scanf("%f",&apuestaC);
-		printf("\nD--> ");
-		scanf("%f",&apuestaD);
-		flag=ComprobarDinero(&apuestaA,&apuestaB,&apuestaC,&apuestaD,&dinero,&fajos);
+		apuesta1(&apuestaA,&apuestaB,&apuestaC,&apuestaD);
+		flag=ComprobarDinero1(&apuestaA,&apuestaB,&apuestaC,&apuestaD,&dinero,&fajos);
 		}
-		if(strcmp(Tdesordenados[i].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados[i].pregunta[aleatorio2[0]].respuesta[aleatorio4[0]].dentro)==0)
+		if(strcmp(Tdesordenados1[i].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados1[i].pregunta[aleatorio2[0]].respuesta[aleatorio4[0]].dentro)==0)
 		dinero=apuestaA*25000;
-		if(strcmp(Tdesordenados[i].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados[i].pregunta[aleatorio2[0]].respuesta[aleatorio4[1]].dentro)==0)
+		if(strcmp(Tdesordenados1[i].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados1[i].pregunta[aleatorio2[0]].respuesta[aleatorio4[1]].dentro)==0)
 		dinero=apuestaB*25000;
-		if(strcmp(Tdesordenados[i].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados[i].pregunta[aleatorio2[0]].respuesta[aleatorio4[2]].dentro)==0)
+		if(strcmp(Tdesordenados1[i].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados1[i].pregunta[aleatorio2[0]].respuesta[aleatorio4[2]].dentro)==0)
 		dinero=apuestaC*25000;
-		if(strcmp(Tdesordenados[i].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados[i].pregunta[aleatorio2[0]].respuesta[aleatorio4[3]].dentro)==0)
+		if(strcmp(Tdesordenados1[i].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados1[i].pregunta[aleatorio2[0]].respuesta[aleatorio4[3]].dentro)==0)
 		dinero=apuestaD*25000;
 		fajos=dinero/25000;
-		printf("\n\nLa respuesta correcta es... %s.\nTe queda un total de %.0f euros(%.0f fajos)\nPulsa intro para continuar a la siguiente pregunta.\n", Tdesordenados[i].pregunta[aleatorio2[0]].respuesta[0].dentro, dinero, fajos);
+		printf("\n\nLa respuesta correcta es... %s.\nTe queda un total de %.0f euros(%.0f fajos)\nPulsa intro para continuar a la siguiente pregunta.\n", Tdesordenados1[i].pregunta[aleatorio2[0]].respuesta[0].dentro, dinero, fajos);
 	if(dinero==0)
 	{
-		escribeTexto("Te has quedado sin dinero, esperemos que tengas mejor suerte la proxima vez");
+		printf("Te has quedado sin dinero, esperemos que tengas mejor suerte la proxima vez. Has llegado a la pregunta %i",x);
 		return 0;
+	}	
 	}
-		
-	
-	}
-	else if(strcmp(respuestatema,Tdesordenados[i+1].titulo)==0)
+	else if(strcmp(respuestatema,Tdesordenados1[i+1].titulo)==0)
 	{
-		printf("\n%s\n", Tdesordenados[i+1].pregunta[aleatorio2[0]].contenido);				
-		printf("A) %s\n", Tdesordenados[i+1].pregunta[aleatorio2[0]].respuesta[aleatorio4[0]].dentro);
-		printf("B) %s\n", Tdesordenados[i+1].pregunta[aleatorio2[0]].respuesta[aleatorio4[1]].dentro);
-		printf("C) %s\n", Tdesordenados[i+1].pregunta[aleatorio2[0]].respuesta[aleatorio4[2]].dentro);
-		printf("D) %s\n", Tdesordenados[i+1].pregunta[aleatorio2[0]].respuesta[aleatorio4[3]].dentro);
+		printf("\n%s\n", Tdesordenados1[i+1].pregunta[aleatorio2[0]].contenido);				
+		printf("A) %s\n", Tdesordenados1[i+1].pregunta[aleatorio2[0]].respuesta[aleatorio4[0]].dentro);
+		printf("B) %s\n", Tdesordenados1[i+1].pregunta[aleatorio2[0]].respuesta[aleatorio4[1]].dentro);
+		printf("C) %s\n", Tdesordenados1[i+1].pregunta[aleatorio2[0]].respuesta[aleatorio4[2]].dentro);
+		printf("D) %s\n", Tdesordenados1[i+1].pregunta[aleatorio2[0]].respuesta[aleatorio4[3]].dentro);
 		printf("Tienes %.0f euros,es decir %.0f fajos.\nCuantos fajos quieres apostar a:\n ",dinero, fajos);
 		while(flag==0)
 		{
-		printf("\nA--> ");
-		scanf("%f",&apuestaA);
-		printf("\nB--> ");
-		scanf("%f",&apuestaB);
-		printf("\nC--> ");
-		scanf("%f",&apuestaC);
-		printf("\nD--> ");
-		scanf("%f",&apuestaD);
-		flag=ComprobarDinero(&apuestaA,&apuestaB,&apuestaC,&apuestaD,&dinero,&fajos);
+		apuesta1(&apuestaA,&apuestaB,&apuestaC,&apuestaD);
+		flag=ComprobarDinero1(&apuestaA,&apuestaB,&apuestaC,&apuestaD,&dinero,&fajos);
 		}
-		if(strcmp(Tdesordenados[i+1].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados[i+1].pregunta[aleatorio2[0]].respuesta[aleatorio4[0]].dentro)==0)
+		if(strcmp(Tdesordenados1[i+1].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados1[i+1].pregunta[aleatorio2[0]].respuesta[aleatorio4[0]].dentro)==0)
 		dinero=apuestaA*25000;
-		if(strcmp(Tdesordenados[i+1].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados[i+1].pregunta[aleatorio2[0]].respuesta[aleatorio4[1]].dentro)==0)
+		if(strcmp(Tdesordenados1[i+1].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados1[i+1].pregunta[aleatorio2[0]].respuesta[aleatorio4[1]].dentro)==0)
 		dinero=apuestaB*25000;
-		if(strcmp(Tdesordenados[i+1].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados[i+1].pregunta[aleatorio2[0]].respuesta[aleatorio4[2]].dentro)==0)
+		if(strcmp(Tdesordenados1[i+1].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados1[i+1].pregunta[aleatorio2[0]].respuesta[aleatorio4[2]].dentro)==0)
 		dinero=apuestaC*25000;
-		if(strcmp(Tdesordenados[i+1].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados[i+1].pregunta[aleatorio2[0]].respuesta[aleatorio4[3]].dentro)==0)
+		if(strcmp(Tdesordenados1[i+1].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados1[i+1].pregunta[aleatorio2[0]].respuesta[aleatorio4[3]].dentro)==0)
 		dinero=apuestaD*25000;
 		fajos=dinero/25000;
-		printf("\n\nLa respuesta correcta es... %s.\nTe queda un total de %.0f euros(%.0f fajos)\nPulsa intro para continuar a la siguiente pregunta.\n", Tdesordenados[i+1].pregunta[aleatorio2[0]].respuesta[0].dentro, dinero, fajos);
+		printf("\n\nLa respuesta correcta es... %s.\nTe queda un total de %.0f euros(%.0f fajos)\nPulsa intro para continuar a la siguiente pregunta.\n", Tdesordenados1[i+1].pregunta[aleatorio2[0]].respuesta[0].dentro, dinero, fajos);
 	if(dinero==0)
 	{
-		escribeTexto("Te has quedado sin dinero, esperemos que tengas mejor suerte la proxima vez");
+		printf("Te has quedado sin dinero, esperemos que tengas mejor suerte la proxima vez. Has llegado a la pregunta %i",x);
 		return 0;
 	}	
 	}
@@ -198,18 +187,17 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	{
 		printf("\nNo te entiendo. Por favor, escoge uno de los temas propuestos.\n\n");
 	}
-	}
-	
-	
+	}  
+	//empieza el segundo bloque	
 	for (l=0; l<NUMT2; l++) 
 	{
-		fscanf(tem2,"%[^\n]\n", &Tordenados[l].titulo);
+		fscanf(tem2,"%[^\n]\n", &Tordenados2[l].titulo);
 		for (j=0; j<NUMP; j++)
 		{
-			fscanf(pb2,"%[^\n]\n", &Tordenados[l].pregunta[j].contenido); 
+			fscanf(pb2,"%[^\n]\n", &Tordenados2[l].pregunta[j].contenido); 
 			for (k=0; k<NUMR2; k++)
 			{			
-				fscanf(res2,"%[^\n]\n", &Tordenados[l].pregunta[j].respuesta[k].dentro);	
+				fscanf(res2,"%[^\n]\n", &Tordenados2[l].pregunta[j].respuesta[k].dentro);
 			}
 		}
 	}
@@ -217,7 +205,153 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	for(i=0; i<NUMT2; i++) //aleatoriza la estructura de temas que estaba ordenada
 	{
 		posicion=aleatorio6[i];						
-		Tdesordenados[i]=Tordenados[posicion];
+		Tdesordenados2[i]=Tordenados2[posicion];
+	}
+	x=0;
+	for(i=0;i<6;i=i+2)
+	{
+	flag=0; 
+	getch();	//pulsa cualquier tecla para continuar
+	fflush(stdin); //pa que no se buguee
+	system("cls"); //limpia la consola
+	x=x+1;
+	printf("\n		BLOQUE 2 - Pregunta %i\n", x);
+	printf("\n		%s		%s\n\n              		 ", Tdesordenados2[i].titulo, Tdesordenados2[i+1].titulo);	
+	fflush(stdin);
+	gets(respuestatema);
+	if(strcmp(respuestatema,Tdesordenados2[i].titulo)==0)
+	{
+		printf("\n%s\n", Tdesordenados2[i].pregunta[aleatorio2[0]].contenido);				
+		printf("A) %s\n", Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[aleatorio3[0]].dentro);
+		printf("B) %s\n", Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[aleatorio3[1]].dentro);
+		printf("C) %s\n", Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[aleatorio3[2]].dentro);
+		printf("Tienes %.0f euros,es decir %.0f fajos.\nCuantos fajos quieres apostar a:\n ",dinero, fajos);
+		while(flag==0)
+		{
+		apuesta2(&apuestaA,&apuestaB,&apuestaC);
+		flag=ComprobarDinero2(&apuestaA,&apuestaB,&apuestaC,&dinero,&fajos);
+		}
+		if(strcmp(Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[aleatorio3[0]].dentro)==0)
+		dinero=apuestaA*25000;
+		if(strcmp(Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[aleatorio3[1]].dentro)==0)
+		dinero=apuestaB*25000;
+		if(strcmp(Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[aleatorio3[2]].dentro)==0)
+		dinero=apuestaC*25000;
+		fajos=dinero/25000;
+		printf("\n\nLa respuesta correcta es... %s.\nTe queda un total de %.0f euros(%.0f fajos)\nPulsa intro para continuar a la siguiente pregunta.\n", Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[0].dentro, dinero, fajos);
+	if(dinero==0)
+	{
+		x=x+8;
+		printf("Te has quedado sin dinero, esperemos que tengas mejor suerte la proxima vez Has llegado a la pregunta %i",x);
+		return 0;
+	}	
+	}
+	else if(strcmp(respuestatema,Tdesordenados2[i+1].titulo)==0)
+	{
+		printf("\n%s\n", Tdesordenados2[i].pregunta[aleatorio2[0]].contenido);				
+		printf("A) %s\n", Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[aleatorio3[0]].dentro);
+		printf("B) %s\n", Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[aleatorio3[1]].dentro);
+		printf("C) %s\n", Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[aleatorio3[2]].dentro);
+		printf("Tienes %.0f euros,es decir %.0f fajos.\nCuantos fajos quieres apostar a:\n ",dinero, fajos);
+		while(flag==0)
+		{
+		apuesta2(&apuestaA,&apuestaB,&apuestaC);
+		flag=ComprobarDinero2(&apuestaA,&apuestaB,&apuestaC,&dinero,&fajos);
+		}
+		if(strcmp(Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[aleatorio3[0]].dentro)==0)
+		dinero=apuestaA*25000;
+		if(strcmp(Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[aleatorio3[1]].dentro)==0)
+		dinero=apuestaB*25000;
+		if(strcmp(Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[aleatorio3[2]].dentro)==0)
+		dinero=apuestaC*25000;
+		fajos=dinero/25000;
+		printf("\n\nLa respuesta correcta es... %s.\nTe queda un total de %.0f euros(%.0f fajos)\nPulsa intro para continuar a la siguiente pregunta.\n", Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[0].dentro, dinero, fajos);
+	if(dinero==0)
+	{
+		x=x+8;
+		printf("Te has quedado sin dinero, esperemos que tengas mejor suerte la proxima vez Has llegado a la pregunta %i",x);
+		return 0;
+	}	
+	}
+	else
+	{
+		printf("\nNo te entiendo. Por favor, escoge uno de los temas propuestos.\n\n");
+	}
+	}  
+	//ULTIMA PREGUNTA
+	for (l=0; l<NUMT3; l++) 
+	{
+		fscanf(tem3,"%[^\n]\n", &Tordenados3[l].titulo);
+		for (j=0; j<NUMP; j++)
+		{
+			fscanf(pb3,"%[^\n]\n", &Tordenados3[l].pregunta[j].contenido); 
+			for (k=0; k<NUMR3; k++)
+			{			
+				fscanf(res3,"%[^\n]\n", &Tordenados3[l].pregunta[j].respuesta[k].dentro);
+			}
+		}
+	}
+	for(i=0; i<NUMT3; i++) //aleatoriza la estructura de temas que estaba ordenada
+	{
+		posicion=aleatorio2[i];						
+		Tdesordenados3[i]=Tordenados3[posicion];
+	}	
+	flag=0;
+	getch(); //pulsa cualquier tecla para continuar
+	fflush(stdin); //pa que no se buguee
+	system("cls"); //limpia la consola
+	printf("\n		---------ULTIMA PREGUNTA---------\n");
+	printf("\n		%s		%s\n\n              		 ", Tdesordenados3[0].titulo, Tdesordenados3[1].titulo);	
+	gets(respuestatema);
+	if(strcmp(respuestatema,Tdesordenados3[0].titulo)==0)
+	{
+		printf("\n%s\n", Tdesordenados3[0].pregunta[aleatorio2[0]].contenido);				
+		printf("A) %s\n", Tdesordenados3[0].pregunta[aleatorio2[0]].respuesta[aleatorio2[0]].dentro);
+		printf("B) %s\n", Tdesordenados3[0].pregunta[aleatorio2[0]].respuesta[aleatorio2[1]].dentro);
+		printf("Tienes %.0f euros,es decir %.0f fajos.\nCuantos fajos quieres apostar a:\n ",dinero, fajos);
+		while(flag==0)
+		{
+		apuesta3(&apuestaA,&apuestaB);
+		flag=ComprobarDinero3(&apuestaA,&apuestaB,&dinero,&fajos);
+		}
+		if(strcmp(Tdesordenados3[0].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados3[0].pregunta[aleatorio2[0]].respuesta[aleatorio2[0]].dentro)==0)
+		dinero=apuestaA*25000;
+		if(strcmp(Tdesordenados3[0].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados3[0].pregunta[aleatorio2[0]].respuesta[aleatorio2[1]].dentro)==0)
+		dinero=apuestaB*25000;
+		fajos=dinero/25000;
+		printf("\n\nLa respuesta correcta es... %s.\nTe queda un total de %.0f euros(%.0f fajos)\n\n", Tdesordenados3[i].pregunta[aleatorio2[0]].respuesta[0].dentro, dinero, fajos);
+	if(dinero==0)
+	{
+		escribeTexto("Que cerca has estado! Mas suerte la proxima vez");
+		return 0;
+	}	
+	}
+	else if(strcmp(respuestatema,Tdesordenados3[1].titulo)==0)
+	{
+		printf("\n%s\n", Tdesordenados3[1].pregunta[aleatorio2[0]].contenido);				
+		printf("A) %s\n", Tdesordenados3[1].pregunta[aleatorio2[0]].respuesta[aleatorio2[0]].dentro);
+		printf("B) %s\n", Tdesordenados3[1].pregunta[aleatorio2[0]].respuesta[aleatorio2[1]].dentro);
+		printf("Tienes %.0f euros,es decir %.0f fajos.\nCuantos fajos quieres apostar a:\n ",dinero, fajos);
+		while(flag==0)
+		{
+		apuesta3(&apuestaA,&apuestaB);
+		flag=ComprobarDinero3(&apuestaA,&apuestaB,&dinero,&fajos);
+		}
+		if(strcmp(Tdesordenados3[1].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados3[1].pregunta[aleatorio2[0]].respuesta[aleatorio2[0]].dentro)==0)
+		dinero=apuestaA*25000;
+		if(strcmp(Tdesordenados3[1].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados3[1].pregunta[aleatorio2[0]].respuesta[aleatorio2[1]].dentro)==0)
+		dinero=apuestaB*25000;
+		fajos=dinero/25000;
+		printf("\n\nLa respuesta correcta es... %s.\nTe queda un total de %.0f euros(%.0f fajos)\n\n", Tdesordenados3[1].pregunta[aleatorio2[0]].respuesta[0].dentro, dinero, fajos);
+	if(dinero==0)
+	{
+		escribeTexto("Que cerca has estado! Mas suerte la proxima vez");
+		return 0;
+	}	
+	}
+	else
+	{
+		printf("\nNo te entiendo. Por favor, escoge uno de los temas propuestos.\n\n");
 	}
 }
     
