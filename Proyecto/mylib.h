@@ -22,3 +22,4 @@ int ComprobarDinero3(float *papuestaA,float *papuestaB,float *pdinero, float *pf
 void apuesta1(float *papuestaA,float *papuestaB,float *papuestaC,float *papuestaD);
 void apuesta2(float *papuestaA,float *papuestaB,float *papuestaC);
 void apuesta3(float *papuestaA,float *papuestaB);
+
