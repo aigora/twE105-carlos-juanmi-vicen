@@ -151,12 +151,13 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 		if(strcmp(Tdesordenados1[i].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados1[i].pregunta[aleatorio2[0]].respuesta[aleatorio4[3]].dentro)==0)
 		dinero=apuestaD*25000;
 		fajos=dinero/25000;
-		printf("\n\nLa respuesta correcta es... %s.\nTe queda un total de %.0f euros(%.0f fajos)\nPulsa intro para continuar a la siguiente pregunta.\n", Tdesordenados1[i].pregunta[aleatorio2[0]].respuesta[0].dentro, dinero, fajos);
+		printf("\n\nLa respuesta correcta es... %s.\nTe queda un total de %.0f euros(%.0f fajos)\n", Tdesordenados1[i].pregunta[aleatorio2[0]].respuesta[0].dentro, dinero, fajos);
 	if(dinero==0)
 	{
 		printf("Te has quedado sin dinero, esperemos que tengas mejor suerte la proxima vez. Has llegado a la pregunta %i",x);
 		return 0;
-	}	
+	}
+	printf("Pulsa intro para continuar a la siguiente pregunta.\n");
 	}
 	else if(strcmp(respuestatema,Tdesordenados1[i+1].titulo)==0)
 	{
@@ -181,12 +182,13 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 		if(strcmp(Tdesordenados1[i+1].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados1[i+1].pregunta[aleatorio2[0]].respuesta[aleatorio4[3]].dentro)==0)
 		dinero=apuestaD*25000;
 		fajos=dinero/25000;
-		printf("\n\nLa respuesta correcta es... %s.\nTe queda un total de %.0f euros(%.0f fajos)\nPulsa intro para continuar a la siguiente pregunta.\n", Tdesordenados1[i+1].pregunta[aleatorio2[0]].respuesta[0].dentro, dinero, fajos);
+		printf("\n\nLa respuesta correcta es... %s.\nTe queda un total de %.0f euros(%.0f fajos)\n", Tdesordenados1[i+1].pregunta[aleatorio2[0]].respuesta[0].dentro, dinero, fajos);
 	if(dinero==0)
 	{
 		printf("Te has quedado sin dinero, esperemos que tengas mejor suerte la proxima vez. Has llegado a la pregunta %i",x);
 		return 0;
-	}	
+	}
+	printf("Pulsa intro para continuar a la siguiente pregunta.\n");	
 	}
 	else
 	{
@@ -248,13 +250,14 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 		if(strcmp(Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[aleatorio3[2]].dentro)==0)
 		dinero=apuestaC*25000;
 		fajos=dinero/25000;
-		printf("\n\nLa respuesta correcta es... %s.\nTe queda un total de %.0f euros(%.0f fajos)\nPulsa intro para continuar a la siguiente pregunta.\n", Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[0].dentro, dinero, fajos);
+		printf("\n\nLa respuesta correcta es... %s.\nTe queda un total de %.0f euros(%.0f fajos)\n", Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[0].dentro, dinero, fajos);
 	if(dinero==0)
 	{
 		x=x+8;
 		printf("Te has quedado sin dinero, esperemos que tengas mejor suerte la proxima vez Has llegado a la pregunta %i",x);
 		return 0;
-	}	
+	}
+	printf("Pulsa intro para continuar a la siguiente pregunta.\n");	
 	}
 	else if(strcmp(respuestatema,Tdesordenados2[i+1].titulo)==0)
 	{
@@ -276,13 +279,14 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 		if(strcmp(Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[0].dentro, Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[aleatorio3[2]].dentro)==0)
 		dinero=apuestaC*25000;
 		fajos=dinero/25000;
-		printf("\n\nLa respuesta correcta es... %s.\nTe queda un total de %.0f euros(%.0f fajos)\nPulsa intro para continuar a la siguiente pregunta.\n", Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[0].dentro, dinero, fajos);
+		printf("\n\nLa respuesta correcta es... %s.\nTe queda un total de %.0f euros(%.0f fajos)\n", Tdesordenados2[i].pregunta[aleatorio2[0]].respuesta[0].dentro, dinero, fajos);
 	if(dinero==0)
 	{
 		x=x+8;
 		printf("Te has quedado sin dinero, esperemos que tengas mejor suerte la proxima vez Has llegado a la pregunta %i",x);
 		return 0;
-	}	
+	}
+	printf("Pulsa intro para continuar a la siguiente pregunta.\n");	
 	}
 	else
 	{
