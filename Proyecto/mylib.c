@@ -11,19 +11,19 @@ void escribeTexto(char vector[]) //funcion letras con retraso
 	}	
 }
 
-void vectorrand8(int aleatorio[NUMT1])
+void vectorrand(int x,int aleatorio[x])
 {
 	int i, j;	
 	srand (time(NULL));
-	aleatorio[0]=rand()%8;
-	for( i=1 ; i<NUMT1 ; i++)
+	aleatorio[0]=rand()%x;
+	for( i=1 ; i<x ; i++)
 	{
-	aleatorio[i]=rand()%8;
+	aleatorio[i]=rand()%x;
 	for( j=i-1 ; j>=0 ; j--)
 	{
 	while(aleatorio[i]==aleatorio[j])
 	{
-	aleatorio[i]=rand()%8;
+	aleatorio[i]=rand()%x;
 	j=i-1;
 	}
 	}
