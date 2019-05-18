@@ -48,10 +48,11 @@ int main() //programa principal
 			}
 		}
 	}
-	vectorrand8(aleatorio8);  //creamos un vector aleatorio de 8
-	vectorrand2(aleatorio2);  //creamos un vector aleatorio de 2
-	vectorrand4(aleatorio4);  //creamos un vector aleatorio de 4
-	vectorrand3(aleatorio3);  //creamos un vector aleatorio de 3
+	vectorrand(8,aleatorio8);  //creamos un vector aleatorio de 8
+	vectorrand(6,aleatorio6);  //creamos un vector aleatorio de 6
+	vectorrand(2,aleatorio2);  //creamos un vector aleatorio de 2
+	vectorrand(4,aleatorio4);  //creamos un vector aleatorio de 4
+	vectorrand(3,aleatorio3);  //creamos un vector aleatorio de 3
 	Ntema Tdesordenados1[NUMT1]; //creamos la estructura de temas desordenados 
 	Ntema Tdesordenados2[NUMT2];
 	Ntema Tdesordenados3[NUMT3];
@@ -209,7 +210,6 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 			}
 		}
 	}
-	vectorrand6(aleatorio6);  //creamos un vector aleatorio de 6
 	for(i=0; i<NUMT2; i++) //aleatoriza la estructura de temas que estaba ordenada
 	{
 		posicion=aleatorio6[i];						
