@@ -11,95 +11,19 @@ void escribeTexto(char vector[]) //funcion letras con retraso
 	}	
 }
 
-void vectorrand8(int aleatorio[NUMT1])
+void vectorrand(int x,int aleatorio[x])
 {
 	int i, j;	
 	srand (time(NULL));
-	aleatorio[0]=rand()%8;
-	for( i=1 ; i<NUMT1 ; i++)
+	aleatorio[0]=rand()%x;
+	for( i=1 ; i<x ; i++)
 	{
-	aleatorio[i]=rand()%8;
+	aleatorio[i]=rand()%x;
 	for( j=i-1 ; j>=0 ; j--)
 	{
 	while(aleatorio[i]==aleatorio[j])
 	{
-	aleatorio[i]=rand()%8;
-	j=i-1;
-	}
-	}
-	}
-}
-
-void vectorrand2(int aleatorio[NUMP])
-{
-	int i, j;	
-	srand (time(NULL));
-	aleatorio[0]=rand()%2;
-	for( i=1 ; i<NUMP ; i++)
-	{
-	aleatorio[i]=rand()%2;
-	for( j=i-1 ; j>=0 ; j--)
-	{
-	while(aleatorio[i]==aleatorio[j])
-	{
-	aleatorio[i]=rand()%2;
-	j=i-1;
-	}
-	}
-	}
-}
-
-void vectorrand4(int aleatorio[NUMR1])
-{
-	int i, j;	
-	srand (time(NULL));
-	aleatorio[0]=rand()%4;
-	for( i=1 ; i<NUMR1 ; i++)
-	{
-	aleatorio[i]=rand()%4;
-	for( j=i-1 ; j>=0 ; j--)
-	{
-	while(aleatorio[i]==aleatorio[j])
-	{
-	aleatorio[i]=rand()%4;
-	j=i-1;
-	}
-	}
-	}
-}
-
-void vectorrand6(int aleatorio[NUMT2])
-{
-	int i, j;	
-	srand (time(NULL));
-	aleatorio[0]=rand()%6;
-	for( i=1 ; i<NUMT2 ; i++)
-	{
-	aleatorio[i]=rand()%6;
-	for( j=i-1 ; j>=0 ; j--)
-	{
-	while(aleatorio[i]==aleatorio[j])
-	{
-	aleatorio[i]=rand()%6;
-	j=i-1;
-	}
-	}
-	}
-}
-
-void vectorrand3(int aleatorio[NUMR2])
-{
-	int i, j;	
-	srand (time(NULL));
-	aleatorio[0]=rand()%3;
-	for( i=1 ; i<NUMR2 ; i++)
-	{
-	aleatorio[i]=rand()%3;
-	for( j=i-1 ; j>=0 ; j--)
-	{
-	while(aleatorio[i]==aleatorio[j])
-	{
-	aleatorio[i]=rand()%3;
+	aleatorio[i]=rand()%x;
 	j=i-1;
 	}
 	}
@@ -158,7 +82,7 @@ int ComprobarDinero2(float *papuestaA,float *papuestaB,float *papuestaC,float *p
 	}
 	else if((*papuestaA!=0)&&(*papuestaB!=0)&&(*papuestaC!=0))
 	{
-		escribeTexto("Te recuerdo que solo puedes repartir el dinero en dos opciones de las tres posibles");
+		escribeTexto("Te recuerdo que solo puedes repartir el dinero en tres opciones de las cuatro posibles");
 		return 0;
 	}
 	escribeTexto("Seguro que quieres repartir el dinero de esta manera?\n");
@@ -195,7 +119,7 @@ int ComprobarDinero3(float *papuestaA,float *papuestaB,float *pdinero, float *pf
 	}
 	else if((*papuestaA!=0)&&(*papuestaB!=0))
 	{
-		escribeTexto("Te recuerdo que solo puedes repartir el dinero en una opcion de las dos posibles");
+		escribeTexto("Te recuerdo que solo puedes repartir el dinero en tres opciones de las cuatro posibles");
 		return 0;
 	}
 	escribeTexto("Seguro que quieres repartir el dinero de esta manera?\n");
@@ -214,7 +138,7 @@ int ComprobarDinero3(float *papuestaA,float *papuestaB,float *pdinero, float *pf
     case 'N':
     	return 0;
     	break;
-    }	
+    }
 }
 
 void apuesta1(float *papuestaA,float *papuestaB,float *papuestaC,float *papuestaD)

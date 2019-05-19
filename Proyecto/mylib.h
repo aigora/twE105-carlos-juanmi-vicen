@@ -11,11 +11,7 @@
 #include <stdlib.h>
 #include <string.h>
 void escribeTexto(char vector[]); //funcion para que las letras vayan con retraso
-void vectorrand8(int aleatorio[NUMT1]); //generador de vector aleatorio de 8
-void vectorrand6(int aleatorio[NUMT2]); //generador de vector aleatorio de 6
-void vectorrand2(int aleatorio[NUMP]); //generador de vector aleatorio de 2
-void vectorrand4(int aleatorio[NUMR1]); //generador de vector aleatorio de 4
-void vectorrand3(int aleatorio[NUMR2]); //generador de vector aleatorio de 3
+void vectorrand(int x,int aleatorio[x]); //generador de vector aleatorio de 8
 int ComprobarDinero1(float *papuestaA,float *papuestaB,float *papuestaC,float *papuestaD,float *pdinero, float *pfajos); 
 int ComprobarDinero2(float *papuestaA,float *papuestaB,float *papuestaC,float *pdinero, float *pfajos);
 int ComprobarDinero3(float *papuestaA,float *papuestaB,float *pdinero, float *pfajos);
