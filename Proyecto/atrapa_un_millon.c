@@ -48,11 +48,35 @@ int main() //programa principal
 			}
 		}
 	}
-	vectorrand(8,aleatorio8);  //creamos un vector aleatorio de 8
-	vectorrand(6,aleatorio6);  //creamos un vector aleatorio de 6
-	vectorrand(2,aleatorio2);  //creamos un vector aleatorio de 2
-	vectorrand(4,aleatorio4);  //creamos un vector aleatorio de 4
-	vectorrand(3,aleatorio3);  //creamos un vector aleatorio de 3
+	for (l=0; l<NUMT2; l++) 
+	{
+		fscanf(tem2,"%[^\n]\n", &Tordenados2[l].titulo);
+		for (j=0; j<NUMP; j++)
+		{
+			fscanf(pb2,"%[^\n]\n", &Tordenados2[l].pregunta[j].contenido); 
+			for (k=0; k<NUMR2; k++)
+			{			
+				fscanf(res2,"%[^\n]\n", &Tordenados2[l].pregunta[j].respuesta[k].dentro);
+			}
+		}
+	}
+	for (l=0; l<NUMT3; l++) 
+	{
+		fscanf(tem3,"%[^\n]\n", &Tordenados3[l].titulo);
+		for (j=0; j<NUMP; j++)
+		{
+			fscanf(pb3,"%[^\n]\n", &Tordenados3[l].pregunta[j].contenido); 
+			for (k=0; k<NUMR3; k++)
+			{			
+				fscanf(res3,"%[^\n]\n", &Tordenados3[l].pregunta[j].respuesta[k].dentro);
+			}
+		}
+	}
+	vectorrand(NUMT1,aleatorio8);  //creamos un vector aleatorio de 8
+	vectorrand(NUMT2,aleatorio6);  //creamos un vector aleatorio de 6
+	vectorrand(NUMP,aleatorio2);  //creamos un vector aleatorio de 2
+	vectorrand(NUMR1,aleatorio4);  //creamos un vector aleatorio de 4
+	vectorrand(NUMR2,aleatorio3);  //creamos un vector aleatorio de 3
 	Ntema Tdesordenados1[NUMT1]; //creamos la estructura de temas desordenados 
 	Ntema Tdesordenados2[NUMT2];
 	Ntema Tdesordenados3[NUMT3];
@@ -61,10 +85,20 @@ int main() //programa principal
 		posicion=aleatorio8[i];						
 		Tdesordenados1[i]=Tordenados1[posicion];
 	}	
+	for(i=0; i<NUMT2; i++) //aleatoriza la estructura de temas que estaba ordenada
+	{
+		posicion=aleatorio6[i];						
+		Tdesordenados2[i]=Tordenados2[posicion];
+	}
+	for(i=0; i<NUMT3; i++) //aleatoriza la estructura de temas que estaba ordenada
+	{
+		posicion=aleatorio2[i];						
+		Tdesordenados3[i]=Tordenados3[posicion];
+	}
+	//comienza el codigo
 	printf("         ---------------------------------------------\n         ---------------------------------------------\n         ---------------------------------------------\n");
 	printf("         ********BIENVENIDO A ATRAPA UN MILLON********\n         ---------------------------------------------\n");
 	printf("         ---------------------------------------------\n         ---------------------------------------------\n\n");
-
 	escribeTexto("Hola!, soy Carlos y te doy la bienvenida a ATRAPA UN MILLON.\n\
 Antes de nada, me gustaria pedirte que durante el juego solo utilices mayusculas.\n\
 Para empezar, me gustaria saber tu nombre y apellidos para conocernos mejor:\n\n");
@@ -115,7 +149,6 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
     }	
 	}
 	//empezamos con la seleccion de temas	
-
 	for(i=0;i<7;i=i+2)
 	{
 	correcto=0;
@@ -198,23 +231,6 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	}
 	}  
 	//empieza el segundo bloque	
-	for (l=0; l<NUMT2; l++) 
-	{
-		fscanf(tem2,"%[^\n]\n", &Tordenados2[l].titulo);
-		for (j=0; j<NUMP; j++)
-		{
-			fscanf(pb2,"%[^\n]\n", &Tordenados2[l].pregunta[j].contenido); 
-			for (k=0; k<NUMR2; k++)
-			{			
-				fscanf(res2,"%[^\n]\n", &Tordenados2[l].pregunta[j].respuesta[k].dentro);
-			}
-		}
-	}
-	for(i=0; i<NUMT2; i++) //aleatoriza la estructura de temas que estaba ordenada
-	{
-		posicion=aleatorio6[i];						
-		Tdesordenados2[i]=Tordenados2[posicion];
-	}
 	x=0;
 	for(i=0;i<6;i=i+2)
 	{
@@ -296,23 +312,6 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	}
 	}  
 	//ULTIMA PREGUNTA
-	for (l=0; l<NUMT3; l++) 
-	{
-		fscanf(tem3,"%[^\n]\n", &Tordenados3[l].titulo);
-		for (j=0; j<NUMP; j++)
-		{
-			fscanf(pb3,"%[^\n]\n", &Tordenados3[l].pregunta[j].contenido); 
-			for (k=0; k<NUMR3; k++)
-			{			
-				fscanf(res3,"%[^\n]\n", &Tordenados3[l].pregunta[j].respuesta[k].dentro);
-			}
-		}
-	}
-	for(i=0; i<NUMT3; i++) //aleatoriza la estructura de temas que estaba ordenada
-	{
-		posicion=aleatorio2[i];						
-		Tdesordenados3[i]=Tordenados3[posicion];
-	}
 	correcto=0;	
 	flag=0;
 	getch(); //pulsa cualquier tecla para continuar
