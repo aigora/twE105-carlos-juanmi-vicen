@@ -18,7 +18,7 @@ int main() //programa principal
 {
 	srand (time(NULL)); 
 	char nombre[50], respuestanombre, nombrearchivo[50], respuestatema[50], basura[5];
-	int i, j, l, k, x=0, posicion, flag, correcto; //posicion se usa en el desorden de los temas
+	int i, j, l, k, x=0, posicion, flag, correcto; //posicion se usa en el desorden de los temas, flag para el reparto del dinero y correcto para la seleccion de temas
 	int aleatorio8[NUMT1], aleatorio2[NUMP], aleatorio4[NUMR1], aleatorio6[NUMT2], aleatorio3[NUMR3], loged=0;
 	float dinero=1000000, fajos=40, apuestaA, apuestaB, apuestaC, apuestaD, estado;
 	Ntema Tordenados1[NUMT1];
