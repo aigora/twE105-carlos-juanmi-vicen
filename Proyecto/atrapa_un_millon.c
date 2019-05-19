@@ -116,7 +116,7 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 	}
 	//empezamos con la seleccion de temas	
 
-/*	for(i=0;i<7;i=i+2)
+	for(i=0;i<7;i=i+2)
 	{
 	correcto=0;
 	flag=0;
@@ -196,9 +196,9 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 		printf("\nNo te entiendo. Por favor, escoge uno de los temas propuestos.\n\n");
 	}
 	}
-	}  */
+	}  
 	//empieza el segundo bloque	
-/*	for (l=0; l<NUMT2; l++) 
+	for (l=0; l<NUMT2; l++) 
 	{
 		fscanf(tem2,"%[^\n]\n", &Tordenados2[l].titulo);
 		for (j=0; j<NUMP; j++)
@@ -294,7 +294,7 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 		printf("\nNo te entiendo. Por favor, escoge uno de los temas propuestos.\n\n");
 	}
 	}
-	}  */
+	}  
 	//ULTIMA PREGUNTA
 	for (l=0; l<NUMT3; l++) 
 	{
