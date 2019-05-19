@@ -385,6 +385,16 @@ Bien, ahora que sabes las normas, empezaremos con la primera seleccion de temas.
 		printf("\nNo te entiendo. Por favor, escoge uno de los temas propuestos.\n\n");
 	}
 	}
+	fclose (pf);
+	fclose (pb1);
+	fclose (pb2);
+	fclose (pb3);
+	fclose (res1);
+	fclose (res2);
+	fclose (res3);
+	fclose (tem1);
+	fclose (tem2);
+	fclose (tem3);
 }
     
 
